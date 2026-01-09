@@ -50,7 +50,7 @@ export default function ClientLayout({
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          {pathname !== "/relific-home" && <Navbar />}
+          <Navbar />
           <motion.div
             key={pathname}
             initial={{ opacity: 0, y: 10 }}
