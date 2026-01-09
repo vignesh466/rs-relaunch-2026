@@ -1,0 +1,28 @@
+# www.relific.io llms.txt
+
+> Offering technology-driven solutions for education, healthcare, sustainability, and social development — focusing on impact measurement, real-time data collection, and AI-driven decision-making to improve outcomes and empower underserved communities.
+
+- [Impact Intelligence Solutions](https://www.relific.io): To offer technology-driven solutions for impact measurement and improvement across various sectors including agriculture, education, and healthcare.
+
+## Core Content Sections
+
+### [Products]   
+
+- [Drive_R / Impact Intelligence](https://www.relific.io/drive_r): The core AI‑powered impact intelligence solution of Relific.  
+  This page introduces Relific’s integrated SaaS for measuring and transforming social impact across sectors such as agriculture, education, healthcare, sustainability, grant management, and livelihood development.  
+
+- [Surve_R / AI-enabled Data Collection](https://www.relific.io/surve_r): This page presents Relific’s AI‑powered impact intelligence platform, especially emphasizing the survey, analytics, and data measurement capabilities across sectors.  
+
+- [ProGran / Programme Analytics & Monitoring](https://www.relific.io/progran): Relific’s dedicated solution for grant and program management, designed to help NGOs, CSR teams, and social sector organizations plan, track, and report on grants and programs efficiently.  
+
+  
+### [About Us]  
+
+- [Organizations We Serve](https://www.relific.io/whoweserve): We provide tailored technology solutions for NGOs, CSR initiatives, and social sector consultants to maximize impact, streamline operations, and drive positive change.
+
+- [About Us](https://www.relific.io/aboutus): Relific empowers organizations with smart digital solutions to enhance efficiency, collaboration, and impact across industries.
+
+
+## [Resources]
+
+- [Blogs](https://www.relific.io/blogs): Our blogs share insights, field stories, and real-world impact from our journey in social innovation and community development.
