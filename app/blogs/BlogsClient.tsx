@@ -13,21 +13,16 @@ export default function BlogsClient() {
   const router = useRouter();
 
   useEffect(() => {
-    console.log("Starting to fetch posts..."); // Debug log
     getPosts()
       .then((json) => {
-        console.log("Strapi response:", json); // Debug log
-        console.log("Response data:", json.data); // Debug data specifically
         if (json.data && Array.isArray(json.data)) {
           setStrapiBlogPosts(json.data);
         } else {
-          console.warn("Unexpected response format:", json);
           setStrapiBlogPosts([]);
         }
         setLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching posts:", error);
         setStrapiBlogPosts([]);
         setLoading(false);
       });
@@ -35,8 +30,6 @@ export default function BlogsClient() {
 
   // Convert Strapi blog posts to consistent format
   const convertStrapiToPost = (post) => {
-    console.log("Converting post:", post); // Debug individual post
-
     return {
       id: `strapi-${post.documentId}`,
       title: post.title || "Untitled Post",

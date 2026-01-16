@@ -24,11 +24,6 @@ async function rq(path: string) {
 }
 
 export async function getPosts(page = 1, pageSize = 12) {
-  if (process.env.NODE_ENV === "development") {
-    console.log("Fetching posts from:", API);
-    console.log("Has token:", !!TOKEN);
-  }
-
   if (!API || !TOKEN) {
     throw new Error("Strapi URL or token not configured");
   }
@@ -47,16 +42,11 @@ export async function getPosts(page = 1, pageSize = 12) {
     const result = await rq(`/api/articles?${query}`);
     return result;
   } catch (error) {
-    console.error("Strapi fetch error:", error);
     throw error;
   }
 }
 
 export async function getPost(slug: string) {
-  if (process.env.NODE_ENV === "development") {
-    console.log("Fetching post by slug:", slug);
-  }
-
   // Use the slug field to fetch articles
   const query = qs.stringify(
     {
@@ -82,7 +72,6 @@ export async function getPost(slug: string) {
 
     return json.data[0];
   } catch (error) {
-    console.error("Failed to fetch post:", error);
     return null;
   }
 } // Enhanced media URL helper
