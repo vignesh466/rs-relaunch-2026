@@ -1,8 +1,12 @@
 import React from "react";
 import type { Metadata } from "next";
 
-// Import existing component
-import ProGran from "../../src/components/Products/progran";
+// Import new components
+import ProGranBanner from "../../src/components/NewProducts/ProGranBanner";
+import ProGranVerifyImpact from "../../src/components/NewProducts/ProGranVerifyImpact";
+import ProGranEvidence from "../../src/components/NewProducts/ProGranEvidence";
+import ProGranVisibility from "../../src/components/NewProducts/ProGranVisibility";
+import ProGranCTA from "../../src/components/NewProducts/ProGranCTA";
 
 export const metadata: Metadata = {
   title: "ProGran: AI-Powered Programme Monitoring & Evaluation Platform",
@@ -85,7 +89,11 @@ const ProGranPage = () => {
           __html: JSON.stringify(productSchema),
         }}
       />
-      <ProGran />
+      <ProGranBanner />
+      <ProGranVerifyImpact />
+      <ProGranEvidence />
+      <ProGranVisibility />
+      <ProGranCTA />
     </>
   );
 };

@@ -1,30 +1,40 @@
 import React from "react";
 import type { Metadata } from "next";
 
-// Import existing component
-import DriveR from "../../src/components/Products/drive-r";
+// Import new components
+import DriveRBanner from "../../src/components/NewProducts/DriveRBanner";
+import DriveRVerifyImpact from "../../src/components/NewProducts/DriveRVerifyImpact";
+import DriveREvidence from "../../src/components/NewProducts/DriveREvidence";
+import DriveRVisibility from "../../src/components/NewProducts/DriveRVisibility";
+import DriveRCTA from "../../src/components/NewProducts/DriveRCTA";
 
 export const metadata: Metadata = {
-  title: "Drive-R: AI-Powered Impact Intelligence & Analytics Platform",
+  title: "Drive-R: AI-Powered Data Intelligence & Analytics Platform",
   description:
-    "Drive-R helps you manage and activate impact data—from grassroots collection to SDG-aligned reports, across health, education, climate, and CSR programmes.",
+    "Turn fragmented data into decision-ready insights. Drive-R helps you cleanse, unify, and analyze impact data with AI-powered tools for every stakeholder.",
+  robots: "index, follow",
   alternates: {
     canonical: "https://www.relific.io/drive_r",
   },
   openGraph: {
-    title: "Drive-R: AI-Powered Impact Intelligence & Analytics Platform",
+    title: "Drive-R: AI-Powered Data Intelligence & Analytics Platform",
     description:
-      "Drive-R helps you manage and activate impact data—from grassroots collection to SDG-aligned reports, across health, education, climate, and CSR programmes.",
+      "Turn fragmented data into decision-ready insights. Drive-R helps you cleanse, unify, and analyze impact data with AI-powered tools for every stakeholder.",
     url: "https://www.relific.io/drive_r",
     type: "website",
-    images: ["https://relific.io/images/og-image.jpg"],
+    images: [
+      {
+        url: "https://relific.io/images/og-image.jpg",
+        alt: "Drive-R Data Intelligence Platform",
+      },
+    ],
     siteName: "Relific",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Drive-R: AI-Powered Impact Intelligence & Analytics Platform",
+    title: "Drive-R: AI-Powered Data Intelligence & Analytics Platform",
     description:
-      "Drive-R helps you manage and activate impact data—from grassroots collection to SDG-aligned reports, across health, education, climate, and CSR programmes.",
+      "Turn fragmented data into decision-ready insights. Drive-R helps you cleanse, unify, and analyze impact data with AI-powered tools for every stakeholder.",
     images: ["https://relific.io/images/og-image.jpg"],
   },
 };
@@ -32,30 +42,30 @@ export const metadata: Metadata = {
 const softwareApplicationSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Drive-R: The Impact Intelligence Engine",
+  name: "Drive-R: AI-Powered Data Intelligence & Analytics Platform",
   url: "https://www.relific.io/drive_r",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   description:
-    "Drive-R helps you manage and activate impact data—from grassroots collection to SDG-aligned reports, across health, education, climate, and CSR programmes.",
+    "Turn fragmented data into decision-ready insights. Drive-R helps you cleanse, unify, and analyze impact data with AI-powered tools for every stakeholder.",
   creator: {
     "@type": "Organization",
     name: "Relific",
-    url: "https://relific.io",
+    url: "https://www.relific.io",
   },
 };
 
 const productSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
-  name: "Drive-R: The Impact Intelligence Engine",
+  name: "Drive-R: Data Intelligence Platform",
   description:
-    "Drive-R is an AI-powered SaaS platform designed to enable social impact organizations to collect, analyze, and report data seamlessly.",
+    "Turn fragmented data into decision-ready insights. Drive-R helps you cleanse, unify, and analyze impact data with AI-powered tools for every stakeholder.",
   brand: {
     "@type": "Brand",
     name: "Relific",
   },
-  category: "Social Impact Software",
+  category: "Data Analytics, SaaS Platform",
   image: "https://www.relific.io/logo.png",
   url: "https://www.relific.io/drive_r",
   offers: {
@@ -79,7 +89,11 @@ export default function DriveRPage() {
           __html: JSON.stringify(productSchema),
         }}
       />
-      <DriveR />
+      <DriveRBanner />
+      <DriveRVerifyImpact />
+      <DriveREvidence />
+      <DriveRVisibility />
+      <DriveRCTA />
     </>
   );
 }

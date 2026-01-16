@@ -1,8 +1,12 @@
 import React from "react";
 import type { Metadata } from "next";
 
-// Import existing component
-import SurveR from "../../src/components/Products/surve-r";
+// Import new components
+import Banner from "../../src/components/NewProducts/Banner";
+import VerifyImpact from "../../src/components/NewProducts/VerifyImpact";
+import Evidence from "../../src/components/NewProducts/Evidence";
+import Visibility from "../../src/components/NewProducts/Visibility";
+import CTA from "../../src/components/NewProducts/CTA";
 
 export const metadata: Metadata = {
   title: "Surve-R: AI-Powered Mobile Data Collection & Impact Reporting",
@@ -85,7 +89,11 @@ const SurveRPage = () => {
           __html: JSON.stringify(productSchema),
         }}
       />
-      <SurveR />
+      <Banner />
+      <VerifyImpact />
+      <Evidence />
+      <Visibility />
+      <CTA />
     </>
   );
 };

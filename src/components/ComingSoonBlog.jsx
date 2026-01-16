@@ -16,7 +16,7 @@ const ComingSoonBlog = () => {
           We are working hard to bring you this content. Stay tuned!
         </p>
         <Link
-          href="/whoweserve"
+          href="/"
           className="mt-6 px-6 py-3 border rounded-lg font-normal shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95"
           style={{
             backgroundColor: Colors.Primary_font,

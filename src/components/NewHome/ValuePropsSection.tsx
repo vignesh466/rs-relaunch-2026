@@ -1,14 +1,15 @@
-import React from 'react'
+import React from "react";
 
 export default function ValuePropsSection() {
   return (
     <>
+      {/* 
       {/* Three value props - 296x152 each */}
-      <section className="py-12 bg-white">
+      {/* <section className="py-12 bg-white">
         <div className="max-w-[1000px] mx-auto px-6">
           <div className="flex flex-wrap justify-center gap-6">
             {/* Months→Minutes Card */}
-            <div 
+      {/* <div 
               className="rounded-2xl p-6 text-center border flex flex-col items-center justify-center" 
               style={{
                 width: '296px', 
@@ -24,10 +25,10 @@ export default function ValuePropsSection() {
               </div>
               <h4 className="font-semibold text-[18px] mb-1" style={{color: '#2D1B69'}}>Months→Minutes</h4>
               <p className="text-[13px]" style={{color: '#6B7280'}}>From data to decision</p>
-            </div>
+            </div> */}
 
-            {/* Zero Coding Card */}
-            <div 
+      {/* Zero Coding Card */}
+      {/* <div 
               className="rounded-2xl p-6 text-center border flex flex-col items-center justify-center" 
               style={{
                 width: '296px', 
@@ -43,10 +44,10 @@ export default function ValuePropsSection() {
               </div>
               <h4 className="font-semibold text-[18px] mb-1" style={{color: '#2D1B69'}}>Zero Coding</h4>
               <p className="text-[13px]" style={{color: '#6B7280'}}>AI Does the Heavy Lifting</p>
-            </div>
+            </div> */}
 
-            {/* 10x Impact Card */}
-            <div 
+      {/* 10x Impact Card */}
+      {/* <div 
               className="rounded-2xl p-6 text-center border flex flex-col items-center justify-center" 
               style={{
                 width: '296px', 
@@ -65,34 +66,47 @@ export default function ValuePropsSection() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Meet AI-R CTA Section - 1120x294 container */}
-      <section className="py-16 bg-white">
+      <section className="hidden md:block py-16 bg-white">
         <div className="max-w-[1200px] mx-auto px-6 flex justify-center">
-          <div 
-            className="rounded-2xl text-center flex flex-col items-center justify-center px-8" 
+          <div
+            className="rounded-2xl text-center flex flex-col items-center justify-center px-8"
             style={{
-              width: '1120px',
-              height: '294px',
-              backgroundColor: '#E8F4F8'
+              width: "1120px",
+              height: "294px",
+              backgroundColor: "#E8F4F8",
             }}
           >
-            <h2 className="text-[32px] leading-tight font-bold mb-4" style={{color: '#2D1B69'}}>
+            <h2
+              className="text-[32px] leading-tight font-bold mb-4"
+              style={{ color: "#2D1B69" }}
+            >
               Meet AI-R, Our team of AI agents that are industry experts
             </h2>
-            <p className="text-[14px] leading-relaxed mb-6 max-w-[680px]" style={{color: '#4B5563'}}>
-              AI-R isn't a sidekick; it's the central nervous system of your programs. AI-R agents run autonomously—cleaning your data, managing your budgets, and generating strategic insights in real-time. It doesn't just assist your team; it amplifies your entire mission.
+            <p
+              className="text-[14px] leading-relaxed mb-6 max-w-[680px]"
+              style={{ color: "#4B5563" }}
+            >
+              AI-R isn't a sidekick; it's the central nervous system of your
+              programs. AI-R agents run autonomously—cleaning your data,
+              managing your budgets, and generating strategic insights in
+              real-time. It doesn't just assist your team; it amplifies your
+              entire mission.
             </p>
-            <div className="w-full sm:w-auto inline-flex flex-col sm:flex-row items-stretch sm:items-center border-2 rounded-xl overflow-hidden max-w-[408px] bg-white" style={{borderColor: '#5563ff'}}>
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
+            <div
+              className="w-full sm:w-auto inline-flex flex-col sm:flex-row items-stretch sm:items-center border-2 rounded-xl overflow-hidden max-w-[408px] bg-white"
+              style={{ borderColor: "#5563ff" }}
+            >
+              <input
+                type="email"
+                placeholder="Enter your email"
                 className="flex-1 px-4 py-3 sm:py-0 text-[13px] sm:text-[14px] focus:outline-none placeholder:text-slate-400 bg-white min-w-0 sm:h-[44px]"
               />
-              <button 
-                className="text-white text-[13px] sm:text-[14px] font-semibold transition-colors whitespace-nowrap hover:opacity-90 rounded-lg sm:rounded-xl m-1 py-2 sm:py-0 sm:w-[184px] sm:h-[36px]" 
-                style={{backgroundColor: '#5563ff'}}
+              <button
+                className="text-white text-[13px] sm:text-[14px] font-semibold transition-colors whitespace-nowrap hover:opacity-90 rounded-lg sm:rounded-xl m-1 py-2 sm:py-0 sm:w-[184px] sm:h-[36px]"
+                style={{ backgroundColor: "#5563ff" }}
               >
                 Get started for free
               </button>
@@ -101,5 +115,5 @@ export default function ValuePropsSection() {
         </div>
       </section>
     </>
-  )
+  );
 }

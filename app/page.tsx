@@ -93,9 +93,9 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="order-1 lg:order-2 flex justify-center lg:justify-end lg:-mr-12 xl:-mr-20">
+              <div className="order-1 lg:order-2 flex justify-center lg:justify-end ">
                 <img
-                  src="/assets/new home page assets/banner_image3.png"
+                  src="/assets/new home page assets/banner.svg"
                   alt="Relific Platform Dashboard"
                   className="w-full max-w-[360px] sm:max-w-[480px] md:max-w-[560px] lg:max-w-[640px] xl:max-w-[720px]"
                 />
