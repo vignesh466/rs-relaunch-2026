@@ -2,6 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 import ChatbotBubble from "../src/components/NewHome/ChatbotBubble";
 import ScrollingLogos from "../src/components/NewHome/ScrollingLogos";
+import Certifications from "../src/components/NewHome/Certifications";
 import ProductsShowcase from "../src/components/NewHome/ProductsShowcase";
 import ValuePropsSection from "../src/components/NewHome/ValuePropsSection";
 import ThirtyDaysSection from "../src/components/NewHome/ThirtyDaysSection";
@@ -11,7 +12,7 @@ import RelificWaySection from "../src/components/NewHome/RelificWaySection";
 import TrustedBySection from "../src/components/NewHome/TrustedBySection";
 
 export const metadata: Metadata = {
-  title: "Relific | Drive-R · Surve-R · ProGran — AI for Impact Ops",
+  title: "Relific | AI for Impact Management",
   description:
     "Relific builds practical AI tools for the social sector: Drive-R for data integration & reporting, Surve-R for AI-assisted form collection, and ProGran for programme & grants operations. Unify data, collect in the field, and report impact with confidence.",
   alternates: {
@@ -95,7 +96,7 @@ export default function HomePage() {
 
               <div className="order-1 lg:order-2 flex justify-center lg:justify-end ">
                 <img
-                  src="/assets/new home page assets/banner.svg"
+                  src="/assets/new home page assets/banner_home.svg"
                   alt="Relific Platform Dashboard"
                   className="w-full max-w-[360px] sm:max-w-[480px] md:max-w-[560px] lg:max-w-[640px] xl:max-w-[720px]"
                 />
@@ -104,11 +105,14 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Scrolling Logos */}
-        <ScrollingLogos />
+        {/* Certifications */}
+        <Certifications />
 
         {/* Products Showcase */}
         <ProductsShowcase />
+
+        {/* Scrolling Logos */}
+        <ScrollingLogos />
 
         {/* Value Props and AI-R Section */}
         <ValuePropsSection />
@@ -128,7 +132,6 @@ export default function HomePage() {
         {/* Trusted by Section */}
         <TrustedBySection />
       </div>
-      <ChatbotBubble />
     </main>
   );
 }

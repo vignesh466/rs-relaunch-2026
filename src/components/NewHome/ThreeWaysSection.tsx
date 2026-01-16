@@ -86,10 +86,9 @@ export default function ThreeWaysSection() {
             </div>
             <div className="flex justify-center">
               <div
-                className="rounded-xl overflow-hidden"
+                className="rounded-xl overflow-hidden w-full max-w-[544px]"
                 style={{
-                  width: "544px",
-                  height: "328px",
+                  aspectRatio: "544/328",
                   backgroundColor: "#374151",
                 }}
               >
@@ -97,7 +96,7 @@ export default function ThreeWaysSection() {
                   ref={gif1Ref}
                   src="/assets/new home page assets/gif1.gif"
                   alt="Turn Documents into Programs"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
             </div>
@@ -107,10 +106,9 @@ export default function ThreeWaysSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1 flex justify-center">
               <div
-                className="rounded-xl overflow-hidden"
+                className="rounded-xl overflow-hidden w-full max-w-[544px]"
                 style={{
-                  width: "544px",
-                  height: "328px",
+                  aspectRatio: "544/328",
                   backgroundColor: "#374151",
                 }}
               >
@@ -118,7 +116,7 @@ export default function ThreeWaysSection() {
                   ref={gif2Ref}
                   src="/assets/new home page assets/gif2.gif"
                   alt="Build Complex Forms"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
             </div>
@@ -180,10 +178,9 @@ export default function ThreeWaysSection() {
             </div>
             <div className="flex justify-center">
               <div
-                className="rounded-xl overflow-hidden"
+                className="rounded-xl overflow-hidden w-full max-w-[544px]"
                 style={{
-                  width: "544px",
-                  height: "328px",
+                  aspectRatio: "544/328",
                   backgroundColor: "#374151",
                 }}
               >
@@ -191,7 +188,7 @@ export default function ThreeWaysSection() {
                   ref={gif3Ref}
                   src="/assets/new home page assets/gif3.gif"
                   alt="Chat with Data"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
             </div>
