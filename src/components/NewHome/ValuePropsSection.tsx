@@ -1,6 +1,19 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function ValuePropsSection() {
+  const [email, setEmail] = useState("");
+  const router = useRouter();
+
+  const handleGetStarted = () => {
+    if (email) {
+      router.push(`/start-trial?email=${encodeURIComponent(email)}`);
+    } else {
+      router.push("/start-trial");
+    }
+  };
   return (
     <>
       {/* 
@@ -102,9 +115,13 @@ export default function ValuePropsSection() {
               <input
                 type="email"
                 placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleGetStarted()}
                 className="flex-1 px-4 py-3 sm:py-0 text-[13px] sm:text-[14px] focus:outline-none placeholder:text-slate-400 bg-white min-w-0 sm:h-[44px]"
               />
               <button
+                onClick={handleGetStarted}
                 className="text-white text-[13px] sm:text-[14px] font-semibold transition-colors whitespace-nowrap hover:opacity-90 rounded-lg sm:rounded-xl m-1 py-2 sm:py-0 sm:w-[184px] sm:h-[36px]"
                 style={{ backgroundColor: "#5563ff" }}
               >

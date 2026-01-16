@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Colors from "../../constants/Color";
 import {
   MapPin,
@@ -89,9 +90,19 @@ const INITIAL_FORM_STATE = {
 };
 
 const StartTrial = () => {
+  const searchParams = useSearchParams();
+  const emailFromUrl = searchParams.get("email");
+
   const [formData, setFormData] = useState(INITIAL_FORM_STATE);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+
+  // Prefill email from URL parameter
+  useEffect(() => {
+    if (emailFromUrl) {
+      setFormData((prev) => ({ ...prev, email: emailFromUrl }));
+    }
+  }, [emailFromUrl]);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;

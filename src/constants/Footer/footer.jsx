@@ -115,30 +115,6 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-
-            {/* Certifications - Mobile */}
-            <div className="pt-4 border-t border-white/20">
-              <p className="text-white/60 text-xs text-center mb-3">
-                Certifications
-              </p>
-              <div className="flex justify-center items-center gap-4">
-                <img
-                  src="/assets/certifications/iso.svg"
-                  alt="ISO Certified"
-                  className="h-8 w-auto opacity-90 hover:opacity-100 transition-opacity"
-                />
-                <img
-                  src="/assets/certifications/gdpr.svg"
-                  alt="GDPR Compliant"
-                  className="h-8 w-auto opacity-90 hover:opacity-100 transition-opacity"
-                />
-                <img
-                  src="/assets/certifications/vapt.svg"
-                  alt="VAPT Certified"
-                  className="h-8 w-auto opacity-90 hover:opacity-100 transition-opacity"
-                />
-              </div>
-            </div>
           </div>
         </div>
 
@@ -175,30 +151,8 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Three Column Layout - Right Side */}
+          {/* Links - Right Side */}
           <div className="flex-[2]">
-            {/* Certifications - Above columns */}
-            <div className="mb-8 pb-6 border-b border-white/20">
-              <p className="text-white/60 text-xs mb-3">Certifications</p>
-              <div className="flex items-center gap-6">
-                <img
-                  src="/assets/certifications/iso.svg"
-                  alt="ISO Certified"
-                  className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
-                />
-                <img
-                  src="/assets/certifications/gdpr.svg"
-                  alt="GDPR Compliant"
-                  className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
-                />
-                <img
-                  src="/assets/certifications/vapt.svg"
-                  alt="VAPT Certified"
-                  className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
-                />
-              </div>
-            </div>
-
             <div className="grid grid-cols-3 gap-12 max-w-2xl w-full">
               {/* Products */}
               <div>
