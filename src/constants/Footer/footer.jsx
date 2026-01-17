@@ -9,26 +9,13 @@ import {
   Mail,
 } from "lucide-react";
 import Link from "next/link";
-import Colors from "../Color";
-
 const Footer = () => {
-  const productsLinks = [
+  const quickLinks = [
     { name: "Drive-R", href: "/drive_r" },
     { name: "Surve-R", href: "/surve_r" },
     { name: "ProGran", href: "/progran" },
-    { name: "All Products", href: "/allproducts" },
-  ];
-
-  const resourcesLinks = [
-    { name: "Demo Videos", href: "/demo-videos" },
-    { name: "Blogs", href: "/blogs" },
     { name: "Other Solutions", href: "/other_solutions" },
-  ];
-
-  const companyLinks = [
-    { name: "About Us", href: "/aboutus" },
-    { name: "Who We Serve", href: "/whoweserve" },
-    { name: "Contact Us", href: "/contact" },
+    { name: "Blogs", href: "/blogs" },
     { name: "Privacy Policy", href: "/privacy" },
   ];
 
@@ -55,160 +42,196 @@ const Footer = () => {
     },
   ];
 
+  const certifications = [
+    { src: "/assets/certifications/gdpr.svg", alt: "GDPR Compliant" },
+    { src: "/assets/certifications/iso_new.svg", alt: "ISO Certified" },
+    { src: "/assets/certifications/vapt.svg", alt: "VAPT Certified" },
+  ];
+
+  const titleClass = "font-semibold text-gray-900" + " text-[18px]";
+  const bodyTextClass = "text-gray-700" + " text-[15px]";
+  const certWrapperStyle = { width: "4.85rem", height: "4.85rem" };
+  const certLogoStyle = { width: "4.25rem", height: "4.25rem" };
+
   return (
-    <footer
-      className="w-full rounded-t-3xl relative z-10"
-      style={{ backgroundColor: Colors.Primary_font }}
-    >
+    <footer className="w-full relative z-10 bg-[#F5F5F5]">
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-10 sm:py-16">
-        {/* Mobile Layout */}
-        <div className="block md:hidden">
-          <div className="text-center space-y-6">
-            {/* Company Info */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:pt-4">
+        <div className="space-y-8">
+          {/* Mobile Essentials */}
+          <div className="md:hidden space-y-5">
+            <img src="/logo.png" alt="Relific Logo" className="w-28" />
+            <h3 className="text-xl font-semibold text-gray-900">
+              Relific Technologies Private Limited
+            </h3>
             <div>
-              <img
-                src="/logo.png"
-                alt="Relific Logo"
-                className="w-32 mx-auto mb-3 brightness-0 invert"
-              />
-
-              <p className="text-white/90 text-sm leading-relaxed max-w-xs mx-auto">
-                Empowering social impact through intelligent data solutions.
-                From grassroots data collection to real-time analytics and
-                SDG-aligned reporting.
+              <p className="text-sm font-semibold text-gray-900">Email</p>
+              <a
+                href="mailto:contact@relific.io"
+                className="text-base text-gray-700"
+              >
+                contact@relific.io
+              </a>
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-gray-900 mb-3">
+                Let's connect
               </p>
-            </div>
-            {/* Contact Info - Compact */}
-            <div className="space-y-2">
-              <div className="flex items-center justify-center gap-2">
-                <Mail size={14} className="text-white/80" />
-                <a
-                  href="mailto:sales@krisiyukta.com"
-                  className="text-white text-sm hover:text-white/80 transition-colors duration-200"
-                >
-                  contact@relific.io
-                </a>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <Phone size={14} className="text-white/80" />
-                <a
-                  href="tel:+916361466735"
-                  className="text-white text-sm hover:text-white/80 transition-colors duration-200"
-                >
-                  +91 63614 66735
-                </a>
+              <div className="flex gap-3">
+                {socialLinks.map(({ icon, href, label }, index) => (
+                  <a
+                    key={index}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="w-12 h-12 bg-[#6D6AFF] rounded-[12px] flex items-center justify-center text-white shadow-sm border border-white/40"
+                  >
+                    {icon}
+                  </a>
+                ))}
               </div>
             </div>
-            {/* Social Links */}
-            <div className="flex justify-center gap-3">
-              {socialLinks.map(({ icon, href, label }, index) => (
-                <a
-                  key={index}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center text-white hover:bg-white/30 transition-colors duration-200"
-                >
-                  {icon}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Desktop Layout */}
-        <div className="hidden md:flex md:items-start md:justify-between gap-12">
-          {/* Company Info - Left Side */}
-          <div className="flex-1 max-w-md">
-            <img
-              src="/logo.png"
-              alt="Relific Logo"
-              className="w-40 mb-4 brightness-0 invert"
-            />
-            <p className="text-white/90 mb-6 leading-relaxed text-sm">
-              Intelligent data solutions for social impact organizations. From
-              mobile data collection to real-time dashboards and
-              compliance-ready reports—helping you turn ground truth into
-              measurable change.
-            </p>
-
-            {/* Social Links */}
-            <div className="flex gap-3 mt-4">
-              {socialLinks.map(({ icon, href, label }, index) => (
-                <a
-                  key={index}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="w-8 h-8 bg-white/20 rounded flex items-center justify-center text-white hover:bg-white/30 transition-colors duration-200"
-                >
-                  {icon}
-                </a>
-              ))}
+            <div>
+              <p className="text-sm font-semibold text-gray-900 mb-3">
+                Certifications
+              </p>
+              <div className="flex gap-4 flex-wrap">
+                {certifications.map((cert, index) => (
+                  <div
+                    key={index}
+                    className="bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-100"
+                    style={certWrapperStyle}
+                  >
+                    <img
+                      src={cert.src}
+                      alt={cert.alt}
+                      className={`${index === 0 ? "rounded-full" : ""} object-contain`}
+                      style={certLogoStyle}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Links - Right Side */}
-          <div className="flex-[2]">
-            <div className="grid grid-cols-3 gap-12 max-w-2xl w-full">
-              {/* Products */}
-              <div>
-                <h3 className="text-lg font-semibold text-white mb-6">
-                  Products
-                </h3>
-                <ul className="space-y-3">
-                  {productsLinks.map((link, index) => (
-                    <li key={index}>
-                      <Link
-                        href={link.href}
-                        className="text-white/80 hover:text-white transition-colors duration-200 text-sm block"
+          <div className="hidden md:block">
+            <img src="/logo.png" alt="Relific Logo" className="w-36" />
+          </div>
+
+          {/* Desktop Layout */}
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr_1.1fr] gap-10 lg:gap-16 items-start">
+            {/* Left Column - Company Info */}
+            <div className="space-y-5">
+              <h3 className={titleClass}>
+                Relific Technologies Private Limited
+              </h3>
+
+              <div className="space-y-4">
+                <div className="flex items-start gap-2">
+                  <MapPin
+                    size={18}
+                    className="text-[#5563FF] mt-1 flex-shrink-0"
+                  />
+                  <div>
+                    <p
+                      className={`${bodyTextClass} font-semibold text-gray-900`}
+                    >
+                      Bangalore office
+                    </p>
+                    <p className={`${bodyTextClass} leading-relaxed`}>
+                      MIG 331, 3rd Cross, Surayacity,
+                      <br />
+                      Anekal Road, Chandapura,
+                      <br />
+                      Bangalore 560099.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+                  <div className="flex items-center gap-3">
+                    <Phone size={18} className="text-[#5563FF] flex-shrink-0" />
+                    <div>
+                      <span
+                        className={`${bodyTextClass} font-semibold text-gray-900`}
                       >
-                        {link.name}
-                      </Link>
-                    </li>
+                        Phone
+                      </span>
+                      <p className={bodyTextClass}>+91 63614 66735</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <Mail size={18} className="text-[#5563FF] flex-shrink-0" />
+                    <div>
+                      <span
+                        className={`${bodyTextClass} font-semibold text-gray-900`}
+                      >
+                        Email
+                      </span>
+                      <p className={bodyTextClass}>contact@relific.io</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Middle Column - Quick Links */}
+            <div>
+              <h3 className={`${titleClass} mb-5`}>Quick links</h3>
+              <ul className="space-y-3">
+                {quickLinks.map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      href={link.href}
+                      className={`${bodyTextClass} hover:text-[#5563FF] transition-colors duration-200`}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right Column - Social & Certifications */}
+            <div className="space-y-6">
+              <div>
+                <h3 className={`${titleClass} mb-4`}>Let's connect</h3>
+                <div className="flex gap-3">
+                  {socialLinks.map(({ icon, href, label }, index) => (
+                    <a
+                      key={index}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="w-12 h-12 bg-[#6D6AFF] rounded-[12px] flex items-center justify-center text-white shadow-sm border border-white/40 hover:-translate-y-0.5 transition-transform duration-200"
+                    >
+                      {icon}
+                    </a>
                   ))}
-                </ul>
+                </div>
               </div>
 
-              {/* Resources */}
               <div>
-                <h3 className="text-lg font-semibold text-white mb-6">
-                  Resources
-                </h3>
-                <ul className="space-y-3">
-                  {resourcesLinks.map((link, index) => (
-                    <li key={index}>
-                      <Link
-                        href={link.href}
-                        className="text-white/80 hover:text-white transition-colors duration-200 text-sm block"
-                      >
-                        {link.name}
-                      </Link>
-                    </li>
+                <h3 className={`${titleClass} mb-4`}>Certifications</h3>
+                <div className="flex gap-4 items-center flex-wrap">
+                  {certifications.map((cert, index) => (
+                    <div
+                      key={index}
+                      className="bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-100"
+                      style={certWrapperStyle}
+                    >
+                      <img
+                        src={cert.src}
+                        alt={cert.alt}
+                        className={`${index === 0 ? "rounded-full" : ""} object-contain`}
+                        style={certLogoStyle}
+                      />
+                    </div>
                   ))}
-                </ul>
-              </div>
-
-              {/* Company */}
-              <div>
-                <h3 className="text-lg font-semibold text-white mb-6">
-                  Company
-                </h3>
-                <ul className="space-y-3">
-                  {companyLinks.map((link, index) => (
-                    <li key={index}>
-                      <Link
-                        href={link.href}
-                        className="text-white/80 hover:text-white transition-colors duration-200 text-sm block"
-                      >
-                        {link.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -216,16 +239,11 @@ const Footer = () => {
       </div>
 
       {/* Footer Bottom */}
-      <div
-        className="border-t border-white/20"
-        style={{ backgroundColor: `${Colors.Primary_font}dd` }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 py-6">
-          <div className="flex justify-center items-center">
-            <p className="text-white/90 text-sm text-center font-medium">
-              © 2025 Relific Technologies Private Limited. All rights reserved.
-            </p>
-          </div>
+      <div className="bg-[#5563FF]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <p className="text-white text-xs text-center">
+            © 2026 Relific Technologies Private Limited. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

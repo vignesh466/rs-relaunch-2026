@@ -1,5 +1,5 @@
-"use client"
-import React from 'react'
+"use client";
+import React from "react";
 
 export default function ScrollingLogos() {
   const logos = [
@@ -9,7 +9,7 @@ export default function ScrollingLogos() {
     { src: "/assets/clients/SGIF-Logo.jpg", alt: "SGIF" },
     { src: "/assets/clients/tata-trusts.jpg", alt: "Tata Trusts" },
     { src: "/assets/clients/RAHINDIA-Logo.png", alt: "RAH India" },
-  ]
+  ];
 
   return (
     <div className="py-6 bg-white overflow-hidden">
@@ -17,23 +17,35 @@ export default function ScrollingLogos() {
         <div className="relative flex overflow-hidden">
           <div className="flex animate-scroll">
             {logos.map((logo, index) => (
-              <div key={index} className="flex-shrink-0 w-[140px] h-[60px] mx-6 flex items-center justify-center">
+              <div
+                key={index}
+                className="flex-shrink-0 w-[140px] h-[80px] mx-6 flex flex-col items-center justify-center group relative"
+              >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="max-w-[120px] max-h-[50px] object-contain opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                  className="max-w-[120px] max-h-[50px] object-contain opacity-50 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300"
                 />
+                <span className="absolute -bottom-1 text-xs font-medium text-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                  {logo.alt}
+                </span>
               </div>
             ))}
           </div>
           <div className="flex animate-scroll" aria-hidden="true">
             {logos.map((logo, index) => (
-              <div key={`duplicate-${index}`} className="flex-shrink-0 w-[140px] h-[60px] mx-6 flex items-center justify-center">
+              <div
+                key={`duplicate-${index}`}
+                className="flex-shrink-0 w-[140px] h-[80px] mx-6 flex flex-col items-center justify-center group relative"
+              >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="max-w-[120px] max-h-[50px] object-contain opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                  className="max-w-[120px] max-h-[50px] object-contain opacity-50 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300"
                 />
+                <span className="absolute -bottom-1 text-xs font-medium text-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                  {logo.alt}
+                </span>
               </div>
             ))}
           </div>
@@ -53,5 +65,5 @@ export default function ScrollingLogos() {
         }
       `}</style>
     </div>
-  )
+  );
 }

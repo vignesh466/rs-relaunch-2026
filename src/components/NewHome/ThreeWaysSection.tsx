@@ -24,7 +24,7 @@ export default function ThreeWaysSection() {
             }
           });
         },
-        { threshold: 0.5 }
+        { threshold: 0.5 },
       );
 
       observer.observe(ref.current);
@@ -85,40 +85,24 @@ export default function ThreeWaysSection() {
               </a>
             </div>
             <div className="flex justify-center">
-              <div
-                className="rounded-xl overflow-hidden w-full max-w-[544px]"
-                style={{
-                  aspectRatio: "544/328",
-                  backgroundColor: "#374151",
-                }}
-              >
-                <img
-                  ref={gif1Ref}
-                  src="/assets/new home page assets/gif1.gif"
-                  alt="Turn Documents into Programs"
-                  className="w-full h-full object-contain"
-                />
-              </div>
+              <img
+                ref={gif1Ref}
+                src="/assets/new home page assets/gif1.gif"
+                alt="Turn Documents into Programs"
+                className="w-full max-w-[600px] h-auto rounded-lg"
+              />
             </div>
           </div>
 
           {/* Way 2 - Build Complex Forms */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1 flex justify-center">
-              <div
-                className="rounded-xl overflow-hidden w-full max-w-[544px]"
-                style={{
-                  aspectRatio: "544/328",
-                  backgroundColor: "#374151",
-                }}
-              >
-                <img
-                  ref={gif2Ref}
-                  src="/assets/new home page assets/gif2.gif"
-                  alt="Build Complex Forms"
-                  className="w-full h-full object-contain"
-                />
-              </div>
+              <img
+                ref={gif2Ref}
+                src="/assets/new home page assets/gif2.gif"
+                alt="Build Complex Forms"
+                className="w-full max-w-[650px] h-auto rounded-lg"
+              />
             </div>
             <div className="order-1 lg:order-2">
               <h3
@@ -177,20 +161,12 @@ export default function ThreeWaysSection() {
               </a>
             </div>
             <div className="flex justify-center">
-              <div
-                className="rounded-xl overflow-hidden w-full max-w-[544px]"
-                style={{
-                  aspectRatio: "544/328",
-                  backgroundColor: "#374151",
-                }}
-              >
-                <img
-                  ref={gif3Ref}
-                  src="/assets/new home page assets/gif3.gif"
-                  alt="Chat with Data"
-                  className="w-full h-full object-contain"
-                />
-              </div>
+              <img
+                ref={gif3Ref}
+                src="/assets/new home page assets/gif3.gif"
+                alt="Chat with Data"
+                className="w-full max-w-[620px] h-auto rounded-lg"
+              />
             </div>
           </div>
         </div>

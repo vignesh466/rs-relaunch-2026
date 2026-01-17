@@ -84,6 +84,7 @@ export default function WhoIsItForSection() {
                   width: "226px",
                   height: "344px",
                   objectFit: "contain",
+                  borderRadius: 0,
                 }}
               />
             </div>
@@ -140,6 +141,7 @@ export default function WhoIsItForSection() {
                   width: "388px",
                   height: "160px",
                   objectFit: "contain",
+                  borderRadius: 0,
                 }}
               />
             </div>
@@ -198,6 +200,7 @@ export default function WhoIsItForSection() {
                   width: "388px",
                   height: "160px",
                   objectFit: "contain",
+                  borderRadius: 0,
                 }}
               />
             </div>
@@ -262,6 +265,7 @@ export default function WhoIsItForSection() {
                   width: "226px",
                   height: "344px",
                   objectFit: "contain",
+                  borderRadius: 0,
                 }}
               />
             </div>
