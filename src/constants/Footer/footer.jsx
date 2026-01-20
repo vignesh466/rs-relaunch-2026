@@ -43,15 +43,13 @@ const Footer = () => {
   ];
 
   const certifications = [
-    { src: "/assets/certifications/gdpr.svg", alt: "GDPR Compliant" },
     { src: "/assets/certifications/iso_new.svg", alt: "ISO Certified" },
-    { src: "/assets/certifications/vapt.svg", alt: "VAPT Certified" },
   ];
 
   const titleClass = "font-semibold text-gray-900" + " text-[18px]";
   const bodyTextClass = "text-gray-700" + " text-[15px]";
   const certWrapperStyle = { width: "4.85rem", height: "4.85rem" };
-  const certLogoStyle = { width: "4.25rem", height: "4.25rem" };
+  const certLogoStyle = { width: "4.85rem", height: "4.85rem" };
 
   return (
     <footer className="w-full relative z-10 bg-[#F5F5F5]">
@@ -60,7 +58,6 @@ const Footer = () => {
         <div className="space-y-8">
           {/* Mobile Essentials */}
           <div className="md:hidden space-y-5">
-            <img src="/logo.png" alt="Relific Logo" className="w-28" />
             <h3 className="text-xl font-semibold text-gray-900">
               Relific Technologies Private Limited
             </h3>
@@ -73,50 +70,48 @@ const Footer = () => {
                 contact@relific.io
               </a>
             </div>
-            <div>
-              <p className="text-sm font-semibold text-gray-900 mb-3">
-                Let's connect
-              </p>
-              <div className="flex gap-3">
-                {socialLinks.map(({ icon, href, label }, index) => (
-                  <a
-                    key={index}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    className="w-12 h-12 bg-[#6D6AFF] rounded-[12px] flex items-center justify-center text-white shadow-sm border border-white/40"
-                  >
-                    {icon}
-                  </a>
-                ))}
+            <div className="grid grid-cols-2 gap-16">
+              <div>
+                <p className="text-sm font-semibold text-gray-900 mb-3">
+                  Let's connect
+                </p>
+                <div className="flex gap-3">
+                  {socialLinks.map(({ icon, href, label }, index) => (
+                    <a
+                      key={index}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="w-12 h-12 bg-[#6D6AFF] rounded-[12px] flex items-center justify-center text-white shadow-sm border border-white/40"
+                    >
+                      {icon}
+                    </a>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-gray-900 mb-3">
+                  Certifications
+                </p>
+                <div className="flex gap-4 flex-wrap">
+                  {certifications.map((cert, index) => (
+                    <div
+                      key={index}
+                      className="bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-100"
+                      style={certWrapperStyle}
+                    >
+                      <img
+                        src={cert.src}
+                        alt={cert.alt}
+                        className={`${index === 0 ? "rounded-full" : ""} object-contain`}
+                        style={certLogoStyle}
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-            <div>
-              <p className="text-sm font-semibold text-gray-900 mb-3">
-                Certifications
-              </p>
-              <div className="flex gap-4 flex-wrap">
-                {certifications.map((cert, index) => (
-                  <div
-                    key={index}
-                    className="bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-100"
-                    style={certWrapperStyle}
-                  >
-                    <img
-                      src={cert.src}
-                      alt={cert.alt}
-                      className={`${index === 0 ? "rounded-full" : ""} object-contain`}
-                      style={certLogoStyle}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="hidden md:block">
-            <img src="/logo.png" alt="Relific Logo" className="w-36" />
           </div>
 
           {/* Desktop Layout */}
@@ -180,7 +175,7 @@ const Footer = () => {
             {/* Middle Column - Quick Links */}
             <div>
               <h3 className={`${titleClass} mb-5`}>Quick links</h3>
-              <ul className="space-y-3">
+              <ul className="space-y-1">
                 {quickLinks.map((link, index) => (
                   <li key={index}>
                     <Link

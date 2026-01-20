@@ -1,17 +1,17 @@
-'use client'
+"use client";
 
-import React from "react"
-import { motion } from "framer-motion"
-import { useRouter } from "next/navigation"
-import { Layers, Workflow, Radar, ShieldCheck } from "lucide-react"
+import React from "react";
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+import { Layers, Workflow, Radar, ShieldCheck } from "lucide-react";
 
 const Colors = {
   Primary_font: "#5563FF",
   Font_6: "#64748b",
-}
+};
 
 export default function RelificWaySection() {
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <section
@@ -46,8 +46,8 @@ export default function RelificWaySection() {
           className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
           <h2
-            className="text-[28px] xs:text-[32px] sm:text-[36px] md:text-[40px] lg:text-[54px] xl:text-[60px] font-bold mb-4 sm:mb-6 px-4"
-            style={{ color: Colors.Primary_font }}
+            className="text-[50px] leading-tight font-normal mb-4"
+            style={{ color: "#5563FF" }}
           >
             Why We Build Different
           </h2>
@@ -55,10 +55,9 @@ export default function RelificWaySection() {
             className="text-[16px] xl:text-[18px] max-w-3xl mx-auto leading-relaxed px-4"
             style={{ color: Colors.Font_6 }}
           >
-            Relific is built on three uncompromising principles:{" "}
-            <span className="font-semibold text-gray-900">Design-first</span>,{" "}
-            <span className="font-semibold text-gray-900">User-first</span>, and{" "}
-            <span className="font-semibold text-gray-900">AI-first</span>.
+            Relific is built on uncompromising principles:{" "}
+            <span className="font-semibold text-gray-900">AI-first</span>, and{" "}
+            <span className="font-semibold text-gray-900">User-first</span>.
             They're not add-ons—they're the foundation of everything we deliver.
           </p>
         </motion.div>
@@ -74,7 +73,7 @@ export default function RelificWaySection() {
             className="order-2 lg:order-1"
           >
             <h3
-              className="text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-bold mb-4 sm:mb-6"
+              className="text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-normal mb-4 sm:mb-6"
               style={{ color: Colors.Primary_font }}
             >
               The Relific Way
@@ -153,7 +152,7 @@ export default function RelificWaySection() {
                   background: `linear-gradient(135deg, ${Colors.Primary_font} 0%, #7c3aed 100%)`,
                 }}
                 onClick={() => {
-                  router.push("/allproducts")
+                  router.push("/allproducts");
                 }}
               >
                 Learn More About Our Platform
@@ -409,5 +408,5 @@ export default function RelificWaySection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

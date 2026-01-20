@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import OrganisationsWeServe from "../../src/components/Who we serve/Orgsweserve";
-import ClientsCarousel from "../../src/components/Home/Clients";
+import ClientsCarousel from "../../src/components/NewHome/ScrollingLogos";
 import BlogPosts from "../../src/components/Who we serve/BlogPosts";
 
 const WhoWeServeClient = () => {

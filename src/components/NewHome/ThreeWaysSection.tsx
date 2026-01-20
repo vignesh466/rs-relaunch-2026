@@ -87,7 +87,7 @@ export default function ThreeWaysSection() {
             <div className="flex justify-center">
               <img
                 ref={gif1Ref}
-                src="/assets/new home page assets/gif1.gif"
+                src="/assets/new home page assets/gif3.gif"
                 alt="Turn Documents into Programs"
                 className="w-full max-w-[600px] h-auto rounded-lg"
               />
@@ -163,7 +163,7 @@ export default function ThreeWaysSection() {
             <div className="flex justify-center">
               <img
                 ref={gif3Ref}
-                src="/assets/new home page assets/gif3.gif"
+                src="/assets/new home page assets/gif1.gif"
                 alt="Chat with Data"
                 className="w-full max-w-[620px] h-auto rounded-lg"
               />

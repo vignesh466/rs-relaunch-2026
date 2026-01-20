@@ -3,26 +3,26 @@ import type { Metadata } from "next";
 import StartTrial from "../../src/components/Contact Form/StartTrial";
 
 export const metadata: Metadata = {
-  title: "Start Your Free Trial with Relific's AI Impact Platform",
+  title: "Book a Demo - See Relific's AI Impact Platform in Action",
   description:
-    "Experience Relific's AI-powered platform. Start a free trial to measure and amplify social impact across agriculture, education, healthcare, and sustainability.",
+    "Schedule a personalized demo of Relific's AI-powered platform. See how we help measure and amplify social impact across agriculture, education, healthcare, and sustainability.",
   alternates: {
-    canonical: "https://www.relific.io/start-trial",
+    canonical: "https://www.relific.io/book-demo",
   },
   openGraph: {
-    title: "Start Your Free Trial with Relific's AI Impact Platform",
+    title: "Book a Demo - See Relific's AI Impact Platform in Action",
     description:
-      "Experience Relific's AI-powered platform. Start a free trial to measure and amplify social impact across agriculture, education, healthcare, and sustainability.",
-    url: "https://www.relific.io/start-trial",
+      "Schedule a personalized demo of Relific's AI-powered platform. See how we help measure and amplify social impact across agriculture, education, healthcare, and sustainability.",
+    url: "https://www.relific.io/book-demo",
     type: "website",
     images: ["https://relific.io/images/og-image.jpg"],
     siteName: "Relific",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Start Your Free Trial with Relific's AI Impact Platform",
+    title: "Book a Demo - See Relific's AI Impact Platform in Action",
     description:
-      "Experience Relific's AI-powered platform. Start a free trial to measure and amplify social impact across agriculture, education, healthcare, and sustainability.",
+      "Schedule a personalized demo of Relific's AI-powered platform. See how we help measure and amplify social impact across agriculture, education, healthcare, and sustainability.",
     images: ["https://relific.io/images/og-image.jpg"],
   },
 };
@@ -30,10 +30,10 @@ export const metadata: Metadata = {
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "Start Your Free Trial with Relific's AI Impact Platform",
-  url: "https://www.relific.io/start-trial",
+  name: "Book a Demo - See Relific's AI Impact Platform in Action",
+  url: "https://www.relific.io/book-demo",
   description:
-    "Experience Relific's AI-powered platform. Start a free trial to measure and amplify social impact across agriculture, education, healthcare, and sustainability.",
+    "Schedule a personalized demo of Relific's AI-powered platform. See how we help measure and amplify social impact across agriculture, education, healthcare, and sustainability.",
   breadcrumb: {
     "@type": "BreadcrumbList",
     itemListElement: [
@@ -46,16 +46,16 @@ const webPageSchema = {
       {
         "@type": "ListItem",
         position: 2,
-        name: "Start Trial",
-        item: "https://www.relific.io/start-trial",
+        name: "Book Demo",
+        item: "https://www.relific.io/book-demo",
       },
     ],
   },
   mainEntity: {
     "@type": "WebPageElement",
-    name: "Free Trial Registration",
+    name: "Demo Request Form",
     description:
-      "Sign up form for Relific's AI-powered impact platform free trial",
+      "Request form for scheduling a personalized demo of Relific's AI-powered impact platform",
   },
 };
 

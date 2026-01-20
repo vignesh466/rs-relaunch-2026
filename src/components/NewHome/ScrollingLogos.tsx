@@ -14,19 +14,19 @@ export default function ScrollingLogos() {
   return (
     <div className="py-6 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="relative flex overflow-hidden">
+        <div className="relative flex">
           <div className="flex animate-scroll">
             {logos.map((logo, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-[140px] h-[80px] mx-6 flex flex-col items-center justify-center group relative"
+                className="flex-shrink-0 w-[140px] h-[100px] mx-6 flex flex-col items-center justify-start pt-4 group relative"
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
                   className="max-w-[120px] max-h-[50px] object-contain opacity-50 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300"
                 />
-                <span className="absolute -bottom-1 text-xs font-medium text-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                <span className="mt-2 text-xs font-medium text-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                   {logo.alt}
                 </span>
               </div>
@@ -36,14 +36,14 @@ export default function ScrollingLogos() {
             {logos.map((logo, index) => (
               <div
                 key={`duplicate-${index}`}
-                className="flex-shrink-0 w-[140px] h-[80px] mx-6 flex flex-col items-center justify-center group relative"
+                className="flex-shrink-0 w-[140px] h-[100px] mx-6 flex flex-col items-center justify-start pt-4 group relative"
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
                   className="max-w-[120px] max-h-[50px] object-contain opacity-50 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300"
                 />
-                <span className="absolute -bottom-1 text-xs font-medium text-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                <span className="mt-2 text-xs font-medium text-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                   {logo.alt}
                 </span>
               </div>

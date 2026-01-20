@@ -52,7 +52,7 @@ const OrganizationsWeServe = () => {
       ],
       pricing: "Starting at $400/month with 60% nonprofit discount",
       ctaText: "Get NGO Pricing",
-      ctaLink: "/start-trial",
+      ctaLink: "/book-demo",
       bgColor: "#10B981",
       cardIcon: <Heart className="w-12 h-12 text-white" />,
     },
@@ -334,7 +334,7 @@ const OrganizationsWeServe = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="/start-trial"
+                href="/book-demo"
                 className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-normal text-base sm:text-lg transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer"
                 style={{
                   backgroundColor: Colors.Primary_font,

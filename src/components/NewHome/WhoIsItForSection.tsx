@@ -7,17 +7,17 @@ export default function WhoIsItForSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2
-            className="text-[50px] leading-tight font-bold mb-4"
-            style={{ color: "#363168" }}
+            className="text-[50px] leading-tight font-normal mb-4"
+            style={{ color: "#5563FF" }}
           >
             Who is it for?
           </h2>
-          <p className="text-[18px] mb-2" style={{ color: "#4B5563" }}>
+          <p className="text-[16px] mb-2" style={{ color: "#333333" }}>
             For grassroots <strong>NGOs</strong>,{" "}
             <strong>global foundations</strong>, <strong>CSR Teams</strong> and{" "}
             <strong>Research organization</strong>
           </p>
-          <p className="text-[16px]" style={{ color: "#6B7280" }}>
+          <p className="text-[16px]" style={{ color: "#333333" }}>
             Simple UX, easy set up, and advanced customization means Relific
             scales with your impact.
           </p>
@@ -50,7 +50,7 @@ export default function WhoIsItForSection() {
                 style={{
                   fontSize: "20px",
                   fontWeight: 600,
-                  color: "#2D1B69",
+                  color: "#5563FF",
                   marginBottom: "12px",
                 }}
               >
@@ -59,7 +59,7 @@ export default function WhoIsItForSection() {
               <p
                 style={{
                   fontSize: "14px",
-                  color: "#4B5563",
+                  color: "#333333",
                   lineHeight: "1.6",
                 }}
               >
@@ -108,7 +108,7 @@ export default function WhoIsItForSection() {
                 style={{
                   fontSize: "20px",
                   fontWeight: 600,
-                  color: "#2D1B69",
+                  color: "#5563FF",
                   marginBottom: "12px",
                 }}
               >
@@ -117,7 +117,7 @@ export default function WhoIsItForSection() {
               <p
                 style={{
                   fontSize: "14px",
-                  color: "#4B5563",
+                  color: "#333333",
                   lineHeight: "1.6",
                 }}
               >
@@ -168,7 +168,7 @@ export default function WhoIsItForSection() {
                 style={{
                   fontSize: "20px",
                   fontWeight: 600,
-                  color: "#2D1B69",
+                  color: "#5563FF",
                   marginBottom: "12px",
                 }}
               >
@@ -177,7 +177,7 @@ export default function WhoIsItForSection() {
               <p
                 style={{
                   fontSize: "14px",
-                  color: "#4B5563",
+                  color: "#333333",
                   lineHeight: "1.6",
                 }}
               >
@@ -231,7 +231,7 @@ export default function WhoIsItForSection() {
                 style={{
                   fontSize: "20px",
                   fontWeight: 600,
-                  color: "#2D1B69",
+                  color: "#5563FF",
                   marginBottom: "12px",
                 }}
               >
@@ -240,7 +240,7 @@ export default function WhoIsItForSection() {
               <p
                 style={{
                   fontSize: "14px",
-                  color: "#4B5563",
+                  color: "#333333",
                   lineHeight: "1.6",
                 }}
               >

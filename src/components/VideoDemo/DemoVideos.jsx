@@ -78,7 +78,7 @@ const DemoVideos = () => {
   const handleVideoClick = (video) => {
     if (!video.available) {
       setVideoError(
-        `Sorry, the ${video.title} demo is currently unavailable. Please try again later or contact our support team for assistance.`
+        `Sorry, the ${video.title} demo is currently unavailable. Please try again later or contact our support team for assistance.`,
       );
       setSelectedVideo(null);
       return;
@@ -118,10 +118,10 @@ const DemoVideos = () => {
           Contact Us
         </Link>
         <Link
-          href="/start-trial"
+          href="/book-demo"
           className="px-6 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
         >
-          Start Trial
+          Book Demo
         </Link>
       </div>
     </div>
@@ -305,7 +305,7 @@ const DemoVideos = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
-              href="/start-trial"
+              href="/book-demo"
               className="inline-block px-8 py-4 rounded-lg shadow-lg transition-all duration-300 text-lg font-semibold cursor-pointer hover:shadow-xl"
               style={{
                 backgroundColor: Colors.Primary_font,
@@ -314,7 +314,7 @@ const DemoVideos = () => {
                 textDecoration: "none",
               }}
             >
-              Start Your Free Trial
+              Book Your Demo
             </Link>
 
             <motion.button
@@ -399,10 +399,10 @@ const DemoVideos = () => {
 
                 <div className="flex gap-3">
                   <Link
-                    href="/start-trial"
+                    href="/book-demo"
                     className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium cursor-pointer"
                   >
-                    Start Trial
+                    Book Demo
                   </Link>
                   <Link
                     href="/contact"

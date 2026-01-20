@@ -126,7 +126,7 @@ const StartTrial = () => {
     setSubmitStatus(null);
 
     const formDataToSend = new FormData();
-    formDataToSend.append("_subject", "New Trial Request - Relific Platform");
+    formDataToSend.append("_subject", "New Demo Request - Relific Platform");
 
     Object.entries(formData).forEach(([key, value]) => {
       if (Array.isArray(value)) {
@@ -175,18 +175,16 @@ const StartTrial = () => {
     <div className="min-h-screen flex flex-col items-start bg-gray-100 py-6 px-4 sm:py-8 sm:px-6 md:py-10 lg:px-[200px]">
       {/* Header */}
       <div className="text-left mb-6 sm:mb-8 w-full">
-        <h2 className="text-gray-600 text-xl sm:text-[24px]">
-          Start Your Free Trial
-        </h2>
+        <h2 className="text-gray-600 text-xl sm:text-[24px]">Book Your Demo</h2>
         <h3
           className="text-[28px] sm:text-[36px] font-bold mt-2"
           style={{ color: Colors.Primary_font }}
         >
-          Get started with Relific in minutes
+          See Relific in action
         </h3>
         <p className="text-gray-600 mt-2 text-lg">
-          Tell us about your organization and we'll set up your personalized
-          trial environment.
+          Tell us about your organization and we'll schedule a personalized demo
+          for you.
         </p>
       </div>
 
@@ -201,42 +199,42 @@ const StartTrial = () => {
         >
           <div className="text-white">
             <h3 className="text-xl font-bold mb-4">
-              What's Included in Your Trial?
+              What to Expect in Your Demo?
             </h3>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
                 <div>
-                  <p className="font-semibold">Full Platform Access</p>
+                  <p className="font-semibold">Live Walkthrough</p>
                   <p className="text-sm text-white/80">
-                    Try all features of ProGran, Drive-R, and Surve-R
+                    See ProGran, Drive-R, and Surve-R in action
                   </p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
                 <div>
-                  <p className="font-semibold">Sample Data & Templates</p>
+                  <p className="font-semibold">Customized for Your Needs</p>
                   <p className="text-sm text-white/80">
-                    Pre-loaded with example projects and forms
+                    Demo tailored to your organization's use cases
                   </p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
                 <div>
-                  <p className="font-semibold">Personal Onboarding</p>
+                  <p className="font-semibold">Q&A Session</p>
                   <p className="text-sm text-white/80">
-                    1-on-1 setup call to customize for your needs
+                    Ask our experts anything about the platform
                   </p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
                 <div>
-                  <p className="font-semibold">24/7 Support</p>
+                  <p className="font-semibold">Next Steps Discussion</p>
                   <p className="text-sm text-white/80">
-                    Email and chat support throughout your trial
+                    Learn about implementation and pricing
                   </p>
                 </div>
               </div>
@@ -244,11 +242,11 @@ const StartTrial = () => {
 
             <div className="mt-8 p-4 bg-white/10 rounded-lg">
               <p className="text-sm">
-                <strong>Trial Duration:</strong> 14 days
+                <strong>Demo Duration:</strong> 30-45 minutes
                 <br />
-                <strong>Setup Time:</strong> Less than 24 hours
+                <strong>Format:</strong> Live video call
                 <br />
-                <strong>No Credit Card Required</strong>
+                <strong>Available:</strong> Weekdays, flexible timing
               </p>
             </div>
           </div>
@@ -312,7 +310,7 @@ const StartTrial = () => {
                       required
                     />
                   </div>
-                )
+                ),
               )}
             </div>
           </div>
@@ -459,7 +457,7 @@ const StartTrial = () => {
                 }-600 font-medium`}
               >
                 {submitStatus === "success"
-                  ? "Trial request submitted successfully! We'll set up your environment and contact you within 24 hours."
+                  ? "Demo request submitted successfully! We'll contact you within 24 hours to schedule your personalized demo."
                   : "Failed to submit request. Please try again or contact support."}
               </p>
             </div>
@@ -483,9 +481,7 @@ const StartTrial = () => {
               }}
               disabled={isSubmitting}
             >
-              {isSubmitting
-                ? "Setting Up Your Trial..."
-                : "Start My Free Trial"}
+              {isSubmitting ? "Submitting Request..." : "Book My Demo"}
             </button>
           </div>
         </form>

@@ -98,7 +98,7 @@ const OtherSolutions = () => {
             otherSolutionsSegments.map((segment, index) => {
               const isEven = index % 2 === 0;
               const product = otherSolutionsLinks.find(
-                (p) => p.drop === segment.d_title
+                (p) => p.drop === segment.d_title,
               );
               const path = product?.path || "/comingsoon";
 

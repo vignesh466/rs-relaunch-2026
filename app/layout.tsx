@@ -51,7 +51,7 @@ const baseMetadata: Metadata = {
       url: "https://relific.io",
       logo: "https://relific.io/logo_small_new.svg",
       description:
-        "Relific builds AI-powered software for the social sector: Drive-R for data integration, Surve-R for AI-assisted form collection, and ProGran for programme & grants operations.",
+        "Relific builds AI-powered software for the social sector: Drive-R for data analytics, Surve-R for AI-assisted data collection, and ProGran for programme & grants management.",
       sameAs: [
         "https://twitter.com/relific",
         "https://www.linkedin.com/company/relific",
@@ -104,16 +104,10 @@ export async function generateMetadata({
   params?: any;
   searchParams?: any;
 }): Promise<Metadata> {
-  // Build the canonical URL from the current request
-  const baseUrl = "https://relific.io";
-
   // Default fallback metadata (pages can override specific properties)
   return {
     ...baseMetadata,
-    alternates: {
-      canonical: baseUrl, // Default to homepage, pages should override this
-    },
-    // Pages can extend this by exporting their own generateMetadata
-    // that calls this function and merges additional metadata
+    // Do not set canonical here - let individual pages define their own
+    // Pages without canonical will have no canonical tag (which is better than wrong one)
   };
 }

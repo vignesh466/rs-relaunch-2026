@@ -7,7 +7,7 @@ export default function ProductsShowcase() {
         <div className="mb-12">
           <h2
             className="text-[28px] md:text-[40px] lg:text-[50px] leading-tight font-normal mb-4 text-left"
-            style={{ color: "#2D1B69" }}
+            style={{ color: "#5563FF" }}
           >
             Replace spreadsheets, forms and other
             <br className="hidden md:block" />
@@ -15,7 +15,7 @@ export default function ProductsShowcase() {
           </h2>
           <p
             className="text-[16px] md:text-[18px] lg:text-[20px] text-left"
-            style={{ color: "#4B5563" }}
+            style={{ color: "#333333" }}
           >
             The only platform designed with AI first approach so that you can
             measure and even amplify impact.
@@ -25,16 +25,36 @@ export default function ProductsShowcase() {
         {/* 4 Product Cards - exact dimensions 256x448 */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
           {/* Surve-R Card */}
-          <div
-            className="rounded-2xl p-4 lg:p-6 flex flex-col w-full lg:w-[256px] h-auto lg:h-[448px] lg:mx-auto"
+          <a
+            href="/surve_r"
+            className="rounded-2xl p-4 lg:p-6 flex flex-col w-full lg:w-[256px] h-auto lg:h-[448px] lg:mx-auto cursor-pointer hover:shadow-lg transition-all duration-300 relative group"
             style={{
               backgroundColor: "#EFF5FB",
             }}
           >
-            <div className="flex-shrink-0">
+            {/* Arrow Overlay */}
+            <div
+              className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-5 rounded-2xl transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100"
+              style={{ paddingBottom: "80px" }}
+            >
+              <svg
+                className="w-12 h-12 text-blue opacity-60"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
+              </svg>
+            </div>
+            <div className="flex-shrink-0 relative z-10">
               <h3
                 className="text-[20px] font-semibold mb-2"
-                style={{ color: "#2D1B69" }}
+                style={{ color: "#5563FF" }}
               >
                 Surve-R
               </h3>
@@ -44,15 +64,8 @@ export default function ProductsShowcase() {
               >
                 Forms that build themselves from a single sentence
               </p>
-              <a
-                href="/surve_r"
-                className="text-[14px] inline-flex items-center gap-1 font-medium"
-                style={{ color: "#5563FF" }}
-              >
-                Learn more →
-              </a>
             </div>
-            <div className="flex-grow flex items-end justify-center mt-6">
+            <div className="flex-grow flex items-end justify-center mt-6 relative z-10">
               <img
                 src="/assets/new home page assets/surver_snap.png"
                 alt="Surve-R"
@@ -60,37 +73,50 @@ export default function ProductsShowcase() {
                 style={{ maxHeight: "280px" }}
               />
             </div>
-          </div>
+          </a>
 
           {/* Drive-R Card */}
-          <div
-            className="rounded-2xl p-4 lg:p-6 flex flex-col w-full lg:w-[256px] h-auto lg:h-[448px] lg:mx-auto"
+          <a
+            href="/drive_r"
+            className="rounded-2xl p-4 lg:p-6 flex flex-col w-full lg:w-[256px] h-auto lg:h-[448px] lg:mx-auto cursor-pointer hover:shadow-lg transition-all duration-300 relative group"
             style={{
-              backgroundColor: "#F5F5F5",
+              backgroundColor: "#F4F2F0",
             }}
           >
-            <div className="flex-shrink-0">
+            {/* Arrow Overlay */}
+            <div
+              className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-5 rounded-2xl transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100"
+              style={{ paddingBottom: "80px" }}
+            >
+              <svg
+                className="w-12 h-12 text-blue opacity-60"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
+              </svg>
+            </div>
+            <div className="flex-shrink-0 relative z-10">
               <h3
                 className="text-[20px] font-semibold mb-2"
-                style={{ color: "#2D1B69" }}
+                style={{ color: "#5563FF" }}
               >
                 Drive-R
               </h3>
               <p
                 className="text-[14px] leading-relaxed mb-3"
-                style={{ color: "#4B5563" }}
+                style={{ color: "#333333" }}
               >
                 Insightworthy data on your fingertips
               </p>
-              <a
-                href="/drive_r"
-                className="text-[14px] inline-flex items-center gap-1 font-medium"
-                style={{ color: "#5563FF" }}
-              >
-                Learn more →
-              </a>
             </div>
-            <div className="flex-grow flex items-end justify-center mt-6">
+            <div className="flex-grow flex items-end justify-center mt-6 relative z-10">
               <img
                 src="/assets/new home page assets/driver_snap.png"
                 alt="Drive-R"
@@ -98,37 +124,50 @@ export default function ProductsShowcase() {
                 style={{ maxHeight: "280px" }}
               />
             </div>
-          </div>
+          </a>
 
           {/* Programs Card */}
-          <div
-            className="rounded-2xl p-4 lg:p-6 flex flex-col w-full lg:w-[256px] h-auto lg:h-[448px] lg:mx-auto"
+          <a
+            href="/progran"
+            className="rounded-2xl p-4 lg:p-6 flex flex-col w-full lg:w-[256px] h-auto lg:h-[448px] lg:mx-auto cursor-pointer hover:shadow-lg transition-all duration-300 relative group"
             style={{
-              backgroundColor: "#F5F5F5",
+              backgroundColor: "#F0F2F4",
             }}
           >
-            <div className="flex-shrink-0">
+            {/* Arrow Overlay */}
+            <div
+              className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-5 rounded-2xl transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100"
+              style={{ paddingBottom: "80px" }}
+            >
+              <svg
+                className="w-12 h-12 text-blue opacity-60"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
+              </svg>
+            </div>
+            <div className="flex-shrink-0 relative z-10">
               <h3
                 className="text-[20px] font-semibold mb-2"
-                style={{ color: "#2D1B69" }}
+                style={{ color: "#5563FF" }}
               >
                 Programs
               </h3>
               <p
                 className="text-[14px] leading-relaxed mb-3"
-                style={{ color: "#4B5563" }}
+                style={{ color: "#333333" }}
               >
                 Bird's eye view of all your programs
               </p>
-              <a
-                href="/progran"
-                className="text-[14px] inline-flex items-center gap-1 font-medium"
-                style={{ color: "#5563FF" }}
-              >
-                Learn more →
-              </a>
             </div>
-            <div className="flex-grow flex items-end justify-center mt-6">
+            <div className="flex-grow flex items-end justify-center mt-6 relative z-10">
               <img
                 src="/assets/new home page assets/programs_snap.png"
                 alt="Programs"
@@ -136,37 +175,50 @@ export default function ProductsShowcase() {
                 style={{ maxHeight: "280px" }}
               />
             </div>
-          </div>
+          </a>
 
           {/* Voluntee-R Card */}
-          <div
-            className="rounded-2xl p-4 lg:p-6 flex flex-col w-full lg:w-[256px] h-auto lg:h-[448px] lg:mx-auto"
+          <a
+            href="/comingsoon"
+            className="rounded-2xl p-4 lg:p-6 flex flex-col w-full lg:w-[256px] h-auto lg:h-[448px] lg:mx-auto cursor-pointer hover:shadow-lg transition-all duration-300 relative group"
             style={{
               backgroundColor: "#F5F5F5",
             }}
           >
-            <div className="flex-shrink-0">
+            {/* Arrow Overlay */}
+            <div
+              className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-5 rounded-2xl transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100"
+              style={{ paddingBottom: "80px" }}
+            >
+              <svg
+                className="w-12 h-12 text-blue opacity-60"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
+              </svg>
+            </div>
+            <div className="flex-shrink-0 relative z-10">
               <h3
                 className="text-[20px] font-semibold mb-2"
-                style={{ color: "#2D1B69" }}
+                style={{ color: "#5563FF" }}
               >
                 Voluntee-R
               </h3>
               <p
                 className="text-[14px] leading-relaxed mb-3"
-                style={{ color: "#4B5563" }}
+                style={{ color: "#333333" }}
               >
                 Amplifying impact through your workforce
               </p>
-              <a
-                href="/comingsoon"
-                className="text-[14px] inline-flex items-center gap-1 font-medium"
-                style={{ color: "#5563FF" }}
-              >
-                Learn more →
-              </a>
             </div>
-            <div className="flex-grow flex items-end justify-center mt-6">
+            <div className="flex-grow flex items-end justify-center mt-6 relative z-10">
               <img
                 src="/assets/new home page assets/volunteer_snap.png"
                 alt="Volunteer-R"
@@ -174,7 +226,7 @@ export default function ProductsShowcase() {
                 style={{ maxHeight: "280px" }}
               />
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </section>

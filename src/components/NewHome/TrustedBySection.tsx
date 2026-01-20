@@ -29,21 +29,21 @@ export default function TrustedBySection() {
 
   const handleGetStarted = () => {
     if (email) {
-      router.push(`/start-trial?email=${encodeURIComponent(email)}`);
+      router.push(`/book-demo?email=${encodeURIComponent(email)}`);
     } else {
-      router.push("/start-trial");
+      router.push("/book-demo");
     }
   };
 
   const handlePrevious = () => {
     setCurrentIndex((prev) =>
-      prev === 0 ? testimonials.length - 1 : prev - 1
+      prev === 0 ? testimonials.length - 1 : prev - 1,
     );
   };
 
   const handleNext = () => {
     setCurrentIndex((prev) =>
-      prev === testimonials.length - 1 ? 0 : prev + 1
+      prev === testimonials.length - 1 ? 0 : prev + 1,
     );
   };
 
@@ -54,13 +54,13 @@ export default function TrustedBySection() {
         <div className="text-center mb-10 sm:mb-12">
           <h2
             className="text-[24px] sm:text-[28px] md:text-[32px] font-semibold mb-3 sm:mb-4 px-2"
-            style={{ color: "#2D1B69" }}
+            style={{ color: "#5563FF" }}
           >
             Trusted by Visionaries in the Social Sector.
           </h2>
           <p
             className="text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed max-w-[800px] mx-auto px-4"
-            style={{ color: "#3b3b3b" }}
+            style={{ color: "#333333" }}
           >
             Relific isn't just another software provider; we are a partner in
             the AI transition. Hear from the leaders who have swapped weeks of
@@ -182,13 +182,13 @@ export default function TrustedBySection() {
         <div className="w-full max-w-[1120px] mx-auto bg-[#E8F4F8] rounded-xl p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col items-center justify-center text-center min-h-[220px] sm:min-h-[240px] md:min-h-[260px]">
           <h3
             className="text-[22px] sm:text-[26px] md:text-[32px] font-semibold mb-2 sm:mb-3"
-            style={{ color: "#2D1B69" }}
+            style={{ color: "#5563FF" }}
           >
             Go AI-Native from Week 1
           </h3>
           <p
             className="text-[13px] sm:text-[14px] md:text-[16px] mb-5 sm:mb-6 max-w-[600px] px-2"
-            style={{ color: "#4B5563" }}
+            style={{ color: "#333333" }}
           >
             Don't wait months to see results. Upload your MoUs or Proposals and
             let AI-R build your workflows, KPIs, and trackers automatically.
@@ -212,7 +212,7 @@ export default function TrustedBySection() {
               className="text-white text-[13px] sm:text-[14px] font-semibold transition-colors whitespace-nowrap hover:opacity-90 rounded-lg sm:rounded-xl m-1 py-2 sm:py-0 sm:w-[184px] sm:h-[36px]"
               style={{ backgroundColor: "#5563ff" }}
             >
-              Get started for free
+              Book a demo now
             </button>
           </div>
         </div>

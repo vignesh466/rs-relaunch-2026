@@ -22,11 +22,11 @@ const DriveRBanner = () => {
             {/* Image - Mobile Only */}
             <div className="flex justify-center lg:hidden mb-6">
               <div
-                className="w-full max-w-[280px] sm:max-w-[360px]"
+                className="w-full max-w-[320px]"
                 style={{
                   height: "auto",
                   aspectRatio: "435/554",
-                  padding: "12px",
+                  padding: "16px",
                 }}
               >
                 <Image
@@ -35,6 +35,7 @@ const DriveRBanner = () => {
                   width={474}
                   height={759}
                   className="rounded-lg w-full h-full object-contain"
+                  style={{ transform: "scale(1.5)" }}
                   priority
                 />
               </div>
@@ -69,11 +70,11 @@ const DriveRBanner = () => {
           {/* Right Image - Desktop Only */}
           <div className="hidden lg:flex flex-1 justify-center lg:justify-end w-full">
             <div
-              className="w-full max-w-[650px]"
+              className="w-full max-w-[435px]"
               style={{
                 height: "auto",
                 aspectRatio: "435/554",
-                padding: "24px",
+                padding: "12px",
               }}
             >
               <Image
@@ -82,6 +83,7 @@ const DriveRBanner = () => {
                 width={474}
                 height={759}
                 className="rounded-lg w-full h-full object-contain"
+                style={{ transform: "scale(1.5)" }}
                 priority
               />
             </div>

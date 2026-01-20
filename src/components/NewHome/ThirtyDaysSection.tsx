@@ -9,9 +9,9 @@ export default function ThirtyDaysSection() {
 
   const handleGetStarted = () => {
     if (email) {
-      router.push(`/start-trial?email=${encodeURIComponent(email)}`);
+      router.push(`/book-demo?email=${encodeURIComponent(email)}`);
     } else {
-      router.push("/start-trial");
+      router.push("/book-demo");
     }
   };
   return (
@@ -19,12 +19,12 @@ export default function ThirtyDaysSection() {
       <div className="max-w-[1200px] mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-12">
-          <p className="text-[24px] mb-3" style={{ color: "#6B7280" }}>
+          <p className="text-[24px] mb-3" style={{ color: "#333333" }}>
             Impact shouldn't wait six months for a dashboard.
           </p>
           <h2
             className="text-[50px] leading-tight font-normal mb-4"
-            style={{ color: "#2D1B69" }}
+            style={{ color: "#5563FF" }}
           >
             Here's what you can achieve with
             <br className="hidden md:block" /> Relific in just 30 days.
@@ -129,13 +129,13 @@ export default function ThirtyDaysSection() {
             </div>
             <h4
               className="font-semibold text-[16px] mb-2"
-              style={{ color: "#2D1B69" }}
+              style={{ color: "#5563FF" }}
             >
               Get started.
             </h4>
             <p
               className="text-[14px] leading-relaxed"
-              style={{ color: "#4B5563" }}
+              style={{ color: "#333333" }}
             >
               Upload your MoUs and Program Proposals. AI-R instantly builds your
               LFA, TOC, models, KPIs, and budget trackers.
@@ -172,7 +172,7 @@ export default function ThirtyDaysSection() {
             </div>
             <h4
               className="font-semibold text-[16px] mb-2"
-              style={{ color: "#2D1B69" }}
+              style={{ color: "#5563FF" }}
             >
               Get comfortable.
             </h4>
@@ -231,7 +231,7 @@ export default function ThirtyDaysSection() {
 
         {/* Bottom CTA */}
         <div className="text-center">
-          <p className="text-[14px] mb-6" style={{ color: "#6B7280" }}>
+          <p className="text-[14px] mb-6" style={{ color: "#333333" }}>
             Switch to Relific (Implementation in 2-4 weeks. Not quarters.)
           </p>
           <div
@@ -251,7 +251,7 @@ export default function ThirtyDaysSection() {
               className="text-white text-[13px] sm:text-[14px] font-semibold transition-colors whitespace-nowrap hover:opacity-90 rounded-lg sm:rounded-xl m-1 py-2 sm:py-0 sm:w-[184px] sm:h-[36px]"
               style={{ backgroundColor: "#5563ff" }}
             >
-              Get started for free
+              Book a demo now
             </button>
           </div>
         </div>

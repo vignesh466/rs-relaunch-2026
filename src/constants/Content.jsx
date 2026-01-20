@@ -118,11 +118,7 @@ export const resourcesLinks = [
 
 export const otherSolutionsLinks = [
   { drop: "Farmer Platform", path: "/farmer_platform" },
-  { drop: "PulsePlus", path: "/health_platform" },
-  { drop: "Education Platform", path: "/education_platform" },
   { drop: "LeafLedger", path: "/leaf" },
-  { drop: "Impact Intelligence", path: "/impact" },
-  { drop: "Seed Production", path: "/tracseed" },
 ];
 
 export const otherSolutionsSegments = [
@@ -133,40 +129,13 @@ export const otherSolutionsSegments = [
     image: farmer,
     path: "/farmer_platform",
   },
-  {
-    d_title: "PulsePlus",
-    description:
-      "Support healthcare NGOs and CSR health initiatives in delivering essential services to underserved populations. Our platform PulsePlus streamlines community health worker management, patient outreach coordination, and health intervention monitoring. Drive meaningful improvements in community health outcomes through data-informed program design and implementation focused on equity and accessibility.",
-    image: Health_dash,
-    path: "/health_platform",
-  },
-  {
-    d_title: "Education Platform",
-    description:
-      "Support education-focused social sector programs in democratizing quality learning for underserved communities. Our platform enables comprehensive tracking of educational interventions, student progress monitoring, and impact assessment of learning initiatives. Designed specifically for organizations committed to SDG 4 - ensuring inclusive and equitable quality education for all.",
-    image: Edash,
-    path: "/education_platform",
-  },
+
   {
     d_title: "LeafLedger",
     description:
       "Designed for seed companies, agri-organizations, and development agencies, TracSeed streamlines seed production, seed bank management, and contract farming workflows. The platform ensures full traceability from breeder seed to certified output, while capturing field-level data, farmer engagement, and quality control processes. TracSeed empowers partners to scale ethically, maintain genetic integrity, and build resilient agricultural value chains.",
     image: Leaf,
     path: "/leaf",
-  },
-  {
-    d_title: "Impact Intelligence",
-    description:
-      "Revolutionize how foundations and corporate giving programs track their social investments and measure community impact. Our comprehensive M&E toolkit provides end-to-end visibility from grant application to outcome measurement, ensuring accountability and maximizing the effectiveness of every philanthropic dollar. Demonstrate your organization's commitment to transparent, data-driven social change.",
-    image: Gdash,
-    path: "/impact",
-  },
-  {
-    d_title: "Seed Production",
-    description:
-      "Designed for seed companies, agri-organizations, and development agencies, TracSeed streamlines seed production, seed bank management, and contract farming workflows. The platform ensures full traceability from breeder seed to certified output, while capturing field-level data, farmer engagement, and quality control processes. TracSeed empowers partners to scale ethically, maintain genetic integrity, and build resilient agricultural value chains.",
-    image: tracseed_image,
-    path: "/tracseed",
   },
 ];
 

@@ -9,9 +9,9 @@ export default function ValuePropsSection() {
 
   const handleGetStarted = () => {
     if (email) {
-      router.push(`/start-trial?email=${encodeURIComponent(email)}`);
+      router.push(`/book-demo?email=${encodeURIComponent(email)}`);
     } else {
-      router.push("/start-trial");
+      router.push("/book-demo");
     }
   };
   return (
@@ -36,7 +36,7 @@ export default function ValuePropsSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h4 className="font-semibold text-[18px] mb-1" style={{color: '#2D1B69'}}>Months→Minutes</h4>
+              <h4 className="font-semibold text-[18px] mb-1" style={{color: '#5563FF'}}>Months→Minutes</h4>
               <p className="text-[13px]" style={{color: '#6B7280'}}>From data to decision</p>
             </div> */}
 
@@ -93,14 +93,14 @@ export default function ValuePropsSection() {
             }}
           >
             <h2
-              className="text-[32px] leading-tight font-bold mb-4"
-              style={{ color: "#2D1B69" }}
+              className="text-[32px] leading-tight font-normal mb-4"
+              style={{ color: "#5563FF" }}
             >
               Meet AI-R, Our team of AI agents that are industry experts
             </h2>
             <p
               className="text-[14px] leading-relaxed mb-6 max-w-[680px]"
-              style={{ color: "#4B5563" }}
+              style={{ color: "#333333" }}
             >
               AI-R isn't a sidekick; it's the central nervous system of your
               programs. AI-R agents run autonomously—cleaning your data,
@@ -125,7 +125,7 @@ export default function ValuePropsSection() {
                 className="text-white text-[13px] sm:text-[14px] font-semibold transition-colors whitespace-nowrap hover:opacity-90 rounded-lg sm:rounded-xl m-1 py-2 sm:py-0 sm:w-[184px] sm:h-[36px]"
                 style={{ backgroundColor: "#5563ff" }}
               >
-                Get started for free
+                Book a demo now
               </button>
             </div>
           </div>
