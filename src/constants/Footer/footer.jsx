@@ -9,6 +9,7 @@ import {
   Mail,
 } from "lucide-react";
 import Link from "next/link";
+
 const Footer = () => {
   const quickLinks = [
     { name: "Drive-R", href: "/drive_r" },
@@ -57,12 +58,14 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:pt-4">
         <div className="space-y-8">
           {/* Mobile Essentials */}
-          <div className="md:hidden space-y-5">
+          <div className="md:hidden space-y-6">
             <h3 className="text-xl font-semibold text-gray-900">
               Relific Technologies Private Limited
             </h3>
+
+            {/* Email */}
             <div>
-              <p className="text-sm font-semibold text-gray-900">Email</p>
+              <p className="text-sm font-semibold text-gray-900 mb-1">Email</p>
               <a
                 href="mailto:contact@relific.io"
                 className="text-base text-gray-700"
@@ -70,46 +73,48 @@ const Footer = () => {
                 contact@relific.io
               </a>
             </div>
-            <div className="grid grid-cols-2 gap-16">
-              <div>
-                <p className="text-sm font-semibold text-gray-900 mb-3">
-                  Let's connect
-                </p>
-                <div className="flex gap-3">
-                  {socialLinks.map(({ icon, href, label }, index) => (
-                    <a
-                      key={index}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={label}
-                      className="w-12 h-12 bg-[#6D6AFF] rounded-[12px] flex items-center justify-center text-white shadow-sm border border-white/40"
-                    >
-                      {icon}
-                    </a>
-                  ))}
-                </div>
+
+            {/* Social Links */}
+            <div>
+              <p className="text-sm font-semibold text-gray-900 mb-3">
+                Let's connect
+              </p>
+              <div className="flex gap-3">
+                {socialLinks.map(({ icon, href, label }, index) => (
+                  <a
+                    key={index}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="w-12 h-12 bg-[#6D6AFF] rounded-[12px] flex items-center justify-center text-white shadow-sm border border-white/40"
+                  >
+                    {icon}
+                  </a>
+                ))}
               </div>
-              <div>
-                <p className="text-sm font-semibold text-gray-900 mb-3">
-                  Certifications
-                </p>
-                <div className="flex gap-4 flex-wrap">
-                  {certifications.map((cert, index) => (
-                    <div
-                      key={index}
-                      className="bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-100"
-                      style={certWrapperStyle}
-                    >
-                      <img
-                        src={cert.src}
-                        alt={cert.alt}
-                        className={`${index === 0 ? "rounded-full" : ""} object-contain`}
-                        style={certLogoStyle}
-                      />
-                    </div>
-                  ))}
-                </div>
+            </div>
+
+            {/* Certifications */}
+            <div>
+              <p className="text-sm font-semibold text-gray-900 mb-3">
+                Certifications
+              </p>
+              <div className="flex gap-4">
+                {certifications.map((cert, index) => (
+                  <div
+                    key={index}
+                    className="bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-100"
+                    style={certWrapperStyle}
+                  >
+                    <img
+                      src={cert.src}
+                      alt={cert.alt}
+                      className={`${index === 0 ? "rounded-full" : ""} object-contain`}
+                      style={certLogoStyle}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>

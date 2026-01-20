@@ -16,7 +16,7 @@ export default function Banner3() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-white pt-12 pb-16 md:pt-16 md:pb-40">
+    <section className="relative overflow-hidden bg-white pb-16 md:pt-16 md:pb-40">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Heading */}
@@ -45,7 +45,7 @@ export default function Banner3() {
                 alt="Product demo"
                 width="860"
                 height="484"
-                fetchpriority="high"
+                fetchPriority="high"
                 decoding="async"
                 className="
                   absolute inset-0
