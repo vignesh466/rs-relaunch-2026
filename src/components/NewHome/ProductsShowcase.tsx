@@ -158,7 +158,7 @@ export default function ProductsShowcase() {
                 className="text-[20px] font-semibold mb-2"
                 style={{ color: "#5563FF" }}
               >
-                Programs
+                ProGran
               </h3>
               <p
                 className="text-[14px] leading-relaxed mb-3"
