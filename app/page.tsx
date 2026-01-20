@@ -1,7 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
 import HeroBanner from "../src/components/NewHome/banner_3";
-import ChatbotBubble from "../src/components/NewHome/ChatbotBubble";
 import ScrollingLogos from "../src/components/NewHome/ScrollingLogos";
 import Certifications from "../src/components/NewHome/Certifications";
 import ProductsShowcase from "../src/components/NewHome/ProductsShowcase";
