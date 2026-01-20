@@ -19,19 +19,18 @@ export default function ClientLayout({
   const [routeLoading, setRouteLoading] = useState(false);
   const pathname = usePathname();
 
-  // Initial app load
+  // Initial app load - render immediately
   useEffect(() => {
-    setTimeout(() => setLoading(false), 1500);
+    setLoading(false);
   }, []);
 
-  // Route change loading - only show if not initial load
+  // Route change loading - reduced delay
   useEffect(() => {
     if (!loading) {
-      // Only show route loading after initial load is complete
       setRouteLoading(true);
       const timer = setTimeout(() => {
         setRouteLoading(false);
-      }, 600); // Shorter delay for route changes
+      }, 150); // Reduced from 600ms to 150ms
 
       return () => clearTimeout(timer);
     }
@@ -45,18 +44,18 @@ export default function ClientLayout({
         <LoadingScreen />
       ) : (
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.15, ease: "easeOut" }}
         >
           <Navbar />
           <motion.div
             key={pathname}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.1 }}
           >
             {children}
           </motion.div>

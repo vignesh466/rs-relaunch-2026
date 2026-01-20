@@ -34,21 +34,29 @@ export default function Banner3() {
           </div>
 
           {/* GIF - shows after heading on mobile, spans right column on desktop */}
-          {/* GIF - visually dominant on right */}
           <div className="order-2 lg:order-2 lg:row-span-2 relative flex justify-center lg:justify-end">
-            <img
-              src="/assets/new home page assets/banner.gif"
-              alt="Product demo"
-              className="
-      w-full
-      max-w-[720px]
-      lg:max-w-[860px]
-      h-auto
-      lg:scale-[1.15]
-      xl:scale-[1.25]
-      origin-center
-    "
-            />
+            {/* Fixed aspect ratio container to prevent layout shift */}
+            <div
+              className="relative w-full max-w-[720px] lg:max-w-[860px]"
+              style={{ aspectRatio: "16 / 9" }}
+            >
+              <img
+                src="/assets/new home page assets/banner.gif"
+                alt="Product demo"
+                width="860"
+                height="484"
+                fetchpriority="high"
+                decoding="async"
+                className="
+                  absolute inset-0
+                  w-full h-full
+                  object-contain
+                  lg:scale-[1.15]
+                  xl:scale-[1.25]
+                  origin-center
+                "
+              />
+            </div>
           </div>
 
           {/* Description and CTA */}

@@ -1,7 +1,11 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function ThreeWaysSection() {
+  const [gif1Visible, setGif1Visible] = useState(false);
+  const [gif2Visible, setGif2Visible] = useState(false);
+  const [gif3Visible, setGif3Visible] = useState(false);
+
   const gif1Ref = useRef<HTMLImageElement>(null);
   const gif2Ref = useRef<HTMLImageElement>(null);
   const gif3Ref = useRef<HTMLImageElement>(null);
@@ -9,31 +13,35 @@ export default function ThreeWaysSection() {
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
 
-    const createObserver = (ref: React.RefObject<HTMLImageElement>) => {
+    const createObserver = (
+      ref: React.RefObject<HTMLImageElement>,
+      setVisible: (visible: boolean) => void,
+    ) => {
       if (!ref.current) return;
 
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            const img = entry.target as HTMLImageElement;
             if (entry.isIntersecting) {
-              // Reload the GIF to restart animation
-              const src = img.src;
-              img.src = "";
-              img.src = src;
+              setVisible(true);
+              // Once loaded, disconnect to prevent re-triggering
+              observer.disconnect();
             }
           });
         },
-        { threshold: 0.5 },
+        {
+          threshold: 0.1,
+          rootMargin: "100px", // Start loading 100px before visible
+        },
       );
 
       observer.observe(ref.current);
       observers.push(observer);
     };
 
-    createObserver(gif1Ref);
-    createObserver(gif2Ref);
-    createObserver(gif3Ref);
+    createObserver(gif1Ref, setGif1Visible);
+    createObserver(gif2Ref, setGif2Visible);
+    createObserver(gif3Ref, setGif3Visible);
 
     return () => {
       observers.forEach((observer) => observer.disconnect());
@@ -84,25 +92,50 @@ export default function ThreeWaysSection() {
                 Learn more →
               </a>
             </div>
-            <div className="flex justify-center">
-              <img
-                ref={gif1Ref}
-                src="/assets/new home page assets/gif3.gif"
-                alt="Turn Documents into Programs"
-                className="w-full max-w-[600px] h-auto rounded-lg"
-              />
+            {/* Fixed aspect ratio container */}
+            <div className="flex justify-center" ref={gif1Ref}>
+              <div
+                className="relative w-full max-w-[600px]"
+                style={{ aspectRatio: "16 / 9" }}
+              >
+                {gif1Visible && (
+                  <img
+                    src="/assets/new home page assets/gif3.gif"
+                    alt="Turn Documents into Programs"
+                    width="600"
+                    height="338"
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 w-full h-full object-contain rounded-lg"
+                  />
+                )}
+              </div>
             </div>
           </div>
 
           {/* Way 2 - Build Complex Forms */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1 flex justify-center">
-              <img
-                ref={gif2Ref}
-                src="/assets/new home page assets/gif2.gif"
-                alt="Build Complex Forms"
-                className="w-full max-w-[650px] h-auto rounded-lg"
-              />
+            {/* Fixed aspect ratio container */}
+            <div
+              className="order-2 lg:order-1 flex justify-center"
+              ref={gif2Ref}
+            >
+              <div
+                className="relative w-full max-w-[650px]"
+                style={{ aspectRatio: "16 / 9" }}
+              >
+                {gif2Visible && (
+                  <img
+                    src="/assets/new home page assets/gif2.gif"
+                    alt="Build Complex Forms"
+                    width="650"
+                    height="366"
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 w-full h-full object-contain rounded-lg"
+                  />
+                )}
+              </div>
             </div>
             <div className="order-1 lg:order-2">
               <h3
@@ -160,13 +193,24 @@ export default function ThreeWaysSection() {
                 Learn more →
               </a>
             </div>
-            <div className="flex justify-center">
-              <img
-                ref={gif3Ref}
-                src="/assets/new home page assets/gif1.gif"
-                alt="Chat with Data"
-                className="w-full max-w-[620px] h-auto rounded-lg"
-              />
+            {/* Fixed aspect ratio container */}
+            <div className="flex justify-center" ref={gif3Ref}>
+              <div
+                className="relative w-full max-w-[620px]"
+                style={{ aspectRatio: "16 / 9" }}
+              >
+                {gif3Visible && (
+                  <img
+                    src="/assets/new home page assets/gif1.gif"
+                    alt="Chat with Data"
+                    width="620"
+                    height="349"
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 w-full h-full object-contain rounded-lg"
+                  />
+                )}
+              </div>
             </div>
           </div>
         </div>
