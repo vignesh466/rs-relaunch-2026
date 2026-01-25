@@ -32,7 +32,6 @@ ${KNOWLEDGE_CONTENT}
 
 Remember: Maximum 2 lines, helpful and relevant, Relific topics only, or "I don't know."`;
 
-
     const chat = model.startChat({
       history: [
         {
