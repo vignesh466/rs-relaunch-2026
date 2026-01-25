@@ -2,11 +2,11 @@ import React from "react";
 import type { Metadata } from "next";
 
 // Import new components
-import ProGranBanner from "../../src/components/NewProducts/ProGranBanner";
-import ProGranVerifyImpact from "../../src/components/NewProducts/ProGranVerifyImpact";
-import ProGranEvidence from "../../src/components/NewProducts/ProGranEvidence";
-import ProGranVisibility from "../../src/components/NewProducts/ProGranVisibility";
-import ProGranCTA from "../../src/components/NewProducts/ProGranCTA";
+import ProGranBanner from "../../src/components/NewProducts/Progran/ProGranBanner";
+import ProGranVerifyImpact from "../../src/components/NewProducts/Progran/ProGranVerifyImpact";
+import ProGranEvidence from "../../src/components/NewProducts/Progran/ProGranEvidence";
+import ProGranVisibility from "../../src/components/NewProducts/Progran/ProGranVisibility";
+import ProGranCTA from "../../src/components/NewProducts/Progran/ProGranCTA";
 
 export const metadata: Metadata = {
   title: "ProGran: AI-Powered Programme Monitoring & Evaluation Platform",
@@ -89,7 +89,9 @@ const ProGranPage = () => {
           __html: JSON.stringify(productSchema),
         }}
       />
-      <ProGranBanner />
+      <div className="pt-10">
+        <ProGranBanner />
+      </div>
       <ProGranVerifyImpact />
       <ProGranEvidence />
       <ProGranVisibility />

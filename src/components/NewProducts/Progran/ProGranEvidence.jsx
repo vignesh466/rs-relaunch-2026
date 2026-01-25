@@ -1,22 +1,21 @@
 import React from "react";
-import Image from "next/image";
 
-const DriveREvidence = () => {
+const ProGranEvidence = () => {
   return (
     <div className="w-full bg-[#222222] py-12 md:py-18">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="text-center mb-8 md:mb-10">
           <h2 className="font-bold text-white mb-3 text-[28px] md:text-[38px] lg:text-[50px] leading-tight">
-            Visualize impact with drag-and-drop simplicity.
+            Governance that runs on autopilot.
           </h2>
           <p className="text-gray-300 text-sm md:text-base lg:text-lg px-2">
-            Transform complex datasets into compelling narratives and visual
-            dashboards using AI in seconds, not days.
+            Ensure financial discipline and timely commitments across your
+            entire organization without the manual follow-ups.
           </p>
         </div>
 
-        {/* Cards Grid */}
+        {/* Three Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-8 md:mb-12">
           {/* Card 1 */}
           <div className="flex flex-col">
@@ -24,22 +23,19 @@ const DriveREvidence = () => {
               className="bg-[#F4F4F4] rounded-2xl shadow-lg flex items-center justify-center p-6"
               style={{ width: "100%", height: "440px", maxWidth: "360px" }}
             >
-              <Image
-                src="/assets/drive_r/Newpage/evidence_1.svg"
-                alt="Coding is now optional"
-                width={280}
-                height={380}
+              <img
+                src="/assets/ProGran/Newpage/evidence_1.svg"
+                alt="Real-time budget monitoring"
                 className="rounded-lg object-contain w-full h-full"
               />
             </div>
             <h3 className="font-semibold text-white mt-4 md:mt-5 mb-2 md:mb-3 text-[18px] md:text-[20px] lg:text-[24px]">
-              Coding is now optional.
+              Real-time budget vs. actuals monitoring.
             </h3>
             <p className="text-white leading-relaxed text-[14px] md:text-[15px] lg:text-[16px]">
-              Create professional-grade charts and dashboards using a simple
-              drag-and-drop interface. Your teams can design custom visual
-              representations that everyone on your team can understand at a
-              glance.
+              Maintain total financial discipline. Monitor spend against budgets
+              in real-time to prevent overspending and enable proactive
+              reallocation of funds across programs when needs change.
             </p>
           </div>
 
@@ -49,22 +45,20 @@ const DriveREvidence = () => {
               className="bg-[#F4F4F4] rounded-2xl shadow-lg flex items-center justify-center p-6"
               style={{ width: "100%", height: "440px", maxWidth: "360px" }}
             >
-              <Image
-                src="/assets/drive_r/Newpage/evidence_2.svg"
-                alt="Democratize advanced analytics"
-                width={280}
-                height={380}
+              <img
+                src="/assets/ProGran/Newpage/evidence_2.svg"
+                alt="Automated reminders and tracking"
                 className="rounded-lg object-contain w-full h-full"
               />
             </div>
             <h3 className="font-semibold text-white mt-4 md:mt-5 mb-2 md:mb-3 text-[18px] md:text-[20px] lg:text-[24px]">
-              Democratize advanced analytics.
+              Automated reminders and progress tracking.
             </h3>
             <p className="text-white leading-relaxed text-[14px] md:text-[15px] lg:text-[16px]">
-              Ask complex questions to our AI using a conversational interface.
-              From trend analysis to predictive modeling, Drive R makes
-              sophisticated analytics accessible to every stakeholder,
-              regardless of their technical background.
+              Eliminate the "chasing" of status updates. Automated workflows
+              monitor progress and send reminders for key commitments, providing
+              an early warning system for potential delays before they impact
+              your results.
             </p>
           </div>
 
@@ -74,22 +68,20 @@ const DriveREvidence = () => {
               className="bg-[#F4F4F4] rounded-2xl shadow-lg flex items-center justify-center p-6"
               style={{ width: "100%", height: "440px", maxWidth: "360px" }}
             >
-              <Image
-                src="/assets/drive_r/Newpage/evidence_3.svg"
-                alt="Real-time benchmarking"
-                width={280}
-                height={380}
+              <img
+                src="/assets/ProGran/Newpage/evidence_3.svg"
+                alt="Role-based views"
                 className="rounded-lg object-contain w-full h-full"
               />
             </div>
             <h3 className="font-semibold text-white mt-4 md:mt-5 mb-2 md:mb-3 text-[18px] md:text-[20px] lg:text-[24px]">
-              Real-time benchmarking.
+              Role-based views for every stakeholder.
             </h3>
             <p className="text-white leading-relaxed text-[14px] md:text-[15px] lg:text-[16px]">
-              Compare and benchmark performance across multiple programs
-              simultaneously. Identify best practices and underperforming areas
-              instantly with portfolio-wide dashboards that drive strategic
-              resource allocation.
+              Give everyone the right level of detail. From the Board and
+              funders to program teams, each stakeholder gets a tailored view of
+              the metrics that matter most—reducing reporting burden while
+              maintaining absolute transparency.
             </p>
           </div>
         </div>
@@ -120,4 +112,4 @@ const DriveREvidence = () => {
   );
 };
 
-export default DriveREvidence;
+export default ProGranEvidence;

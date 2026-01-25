@@ -2,11 +2,11 @@ import React from "react";
 import type { Metadata } from "next";
 
 // Import new components
-import DriveRBanner from "../../src/components/NewProducts/DriveRBanner";
-import DriveRVerifyImpact from "../../src/components/NewProducts/DriveRVerifyImpact";
-import DriveREvidence from "../../src/components/NewProducts/DriveREvidence";
-import DriveRVisibility from "../../src/components/NewProducts/DriveRVisibility";
-import DriveRCTA from "../../src/components/NewProducts/DriveRCTA";
+import DriveRBanner from "../../src/components/NewProducts/Drive-R/DriveRBanner";
+import DriveRVerifyImpact from "../../src/components/NewProducts/Drive-R/DriveRVerifyImpact";
+import DriveREvidence from "../../src/components/NewProducts/Drive-R/DriveREvidence";
+import DriveRVisibility from "../../src/components/NewProducts/Drive-R/DriveRVisibility";
+import DriveRCTA from "../../src/components/NewProducts/Drive-R/DriveRCTA";
 
 export const metadata: Metadata = {
   title: "Drive-R: AI-Powered Data Intelligence & Analytics Platform",
@@ -89,7 +89,9 @@ export default function DriveRPage() {
           __html: JSON.stringify(productSchema),
         }}
       />
-      <DriveRBanner />
+      <div className="pt-10">
+        <DriveRBanner />
+      </div>
       <DriveRVerifyImpact />
       <DriveREvidence />
       <DriveRVisibility />

@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 const VerifyImpact = () => {
   return (
@@ -33,11 +32,9 @@ const VerifyImpact = () => {
                 </p>
               </div>
               <div className="flex justify-center items-center min-h-[200px] md:min-h-[280px] lg:min-h-[320px]">
-                <Image
+                <img
                   src="/assets/SurveR/Newpage/impact_1.svg"
                   alt="Built-in logic compliance interface"
-                  width={600}
-                  height={360}
                   className="rounded-lg object-contain w-full h-auto max-w-full"
                 />
               </div>
@@ -59,11 +56,9 @@ const VerifyImpact = () => {
                   in one click.
                 </p>
                 <div className="flex justify-center items-center mt-4 min-h-[180px] md:min-h-[200px]">
-                  <Image
+                  <img
                     src="/assets/SurveR/Newpage/impact_left.svg"
                     alt="AI form creation interface"
-                    width={444}
-                    height={200}
                     className="rounded-lg object-contain w-full h-auto max-w-[444px]"
                   />
                 </div>
@@ -83,11 +78,9 @@ const VerifyImpact = () => {
                   the integrity of the raw data.
                 </p>
                 <div className="flex justify-center items-center mt-4 min-h-[180px] md:min-h-[200px]">
-                  <Image
+                  <img
                     src="/assets/SurveR/Newpage/impact_right.svg"
                     alt="Maker-Checker workflow interface"
-                    width={444}
-                    height={200}
                     className="rounded-lg object-contain w-full h-auto max-w-[444px]"
                   />
                 </div>

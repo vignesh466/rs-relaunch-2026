@@ -4,8 +4,8 @@ import { X, Send, MessageCircle, Sparkles } from "lucide-react";
 import {
   INITIAL_GREETING,
   LIMIT_REACHED_MESSAGE,
+  LIMIT_GREETING,
   CHATBOT_CONFIG,
-  generateResponse,
   parseMarkdownContent,
 } from "./knowledge";
 
@@ -21,12 +21,10 @@ interface Position {
 
 export default function ChatbotBubble() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    { role: "bot", content: INITIAL_GREETING },
-  ]);
-  const [inputValue, setInputValue] = useState("");
   const [queryCount, setQueryCount] = useState(0);
   const [showLimit, setShowLimit] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [inputValue, setInputValue] = useState("");
   const [isDragging, setIsDragging] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const [position, setPosition] = useState<Position>({ x: 24, y: 24 });
@@ -69,17 +67,22 @@ export default function ChatbotBubble() {
         localStorage.removeItem(CHATBOT_CONFIG.storageKeys.queryCount);
         localStorage.removeItem(CHATBOT_CONFIG.storageKeys.sessionStart);
         setQueryCount(0);
+        setMessages([{ role: "bot", content: INITIAL_GREETING }]);
       } else if (storedCount) {
         const count = parseInt(storedCount);
         setQueryCount(count);
         if (count >= CHATBOT_CONFIG.maxQueriesPerSession) {
           setShowLimit(true);
+          setMessages([{ role: "bot", content: LIMIT_GREETING }]);
+        } else {
+          setMessages([{ role: "bot", content: INITIAL_GREETING }]);
         }
       } else {
         localStorage.setItem(
           CHATBOT_CONFIG.storageKeys.sessionStart,
           now.toString(),
         );
+        setMessages([{ role: "bot", content: INITIAL_GREETING }]);
       }
     }
   }, []);
@@ -131,11 +134,12 @@ export default function ChatbotBubble() {
     };
   }, [isDragging, isOpen, position]);
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (!inputValue.trim() || showLimit) return;
 
     const userMessage: Message = { role: "user", content: inputValue };
     setMessages((prev) => [...prev, userMessage]);
+    const userQuery = inputValue;
     setInputValue("");
     setIsTyping(true);
 
@@ -146,22 +150,66 @@ export default function ChatbotBubble() {
       newCount.toString(),
     );
 
-    // Simulate typing delay for more natural feel
-    setTimeout(() => {
-      setIsTyping(false);
+    try {
       if (newCount >= CHATBOT_CONFIG.maxQueriesPerSession) {
-        setShowLimit(true);
-        const limitMessage: Message = {
-          role: "bot",
-          content: LIMIT_REACHED_MESSAGE,
-        };
-        setMessages((prev) => [...prev, limitMessage]);
-      } else {
-        const botResponse = generateResponse(inputValue);
-        const botMessage: Message = { role: "bot", content: botResponse };
+        // Allow this question but show limit after
+        const response = await fetch("/api/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message: userQuery }),
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to get response");
+        }
+
+        const data = await response.json();
+        const botMessage: Message = { role: "bot", content: data.response };
         setMessages((prev) => [...prev, botMessage]);
+        setIsTyping(false);
+
+        // Show limit message after 5th question is answered
+        if (newCount === CHATBOT_CONFIG.maxQueriesPerSession) {
+          setShowLimit(true);
+          const limitMessage: Message = {
+            role: "bot",
+            content: LIMIT_REACHED_MESSAGE,
+          };
+          setTimeout(() => {
+            setMessages((prev) => [...prev, limitMessage]);
+          }, 500);
+        }
+      } else {
+        // Call API endpoint
+        const response = await fetch("/api/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message: userQuery }),
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to get response");
+        }
+
+        const data = await response.json();
+        const botMessage: Message = { role: "bot", content: data.response };
+        setMessages((prev) => [...prev, botMessage]);
+        setIsTyping(false);
       }
-    }, 600);
+    } catch (error) {
+      console.error("Chat error:", error);
+      const errorMessage: Message = {
+        role: "bot",
+        content:
+          "Sorry, I'm having trouble responding right now. Please try again.",
+      };
+      setMessages((prev) => [...prev, errorMessage]);
+      setIsTyping(false);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -400,11 +448,11 @@ export default function ChatbotBubble() {
 
       {/* Chatbot Window */}
       {isOpen && (
-        <div className="fixed right-6 bottom-6 z-50 w-96 max-w-[calc(100vw-3rem)] h-[600px] max-h-[calc(100vh-3rem)] flex flex-col animate-slide-up">
+        <div className="fixed right-6 bottom-6 z-50 w-96 max-w-[calc(100vw-3rem)] h-[600px] max-h-[calc(100vh-3rem)] animate-slide-up">
           {/* Glassmorphism container with gradient border */}
-          <div className="relative h-full glassmorphism rounded-2xl shadow-2xl overflow-hidden gradient-border">
+          <div className="relative h-full glassmorphism rounded-2xl shadow-2xl flex flex-col gradient-border">
             {/* Header with gradient */}
-            <div className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 p-5 flex justify-between items-center overflow-hidden">
+            <div className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 p-5 flex justify-between items-center overflow-hidden flex-shrink-0">
               {/* Animated background pattern */}
               <div className="absolute inset-0 opacity-10">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-pulse"></div>
@@ -439,7 +487,7 @@ export default function ChatbotBubble() {
             </div>
 
             {/* Messages with gradient background */}
-            <div className="flex-1 overflow-y-auto p-5 space-y-4 bg-gradient-to-b from-gray-50 to-white">
+            <div className="flex-1 overflow-y-auto p-5 space-y-4 bg-gradient-to-b from-gray-50 to-white min-h-0">
               {messages.map((message, index) => (
                 <div
                   key={index}
@@ -478,7 +526,7 @@ export default function ChatbotBubble() {
 
             {/* Input or CTA */}
             {showLimit ? (
-              <div className="p-5 border-t border-gray-200 bg-white/80 backdrop-blur-sm">
+              <div className="p-5 border-t border-gray-200 bg-white/80 backdrop-blur-sm flex-shrink-0">
                 <a
                   href="/book-demo"
                   className="block w-full bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 text-white text-center py-4 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden group"
@@ -491,7 +539,7 @@ export default function ChatbotBubble() {
                 </a>
               </div>
             ) : (
-              <div className="p-5 border-t border-gray-200 bg-white/80 backdrop-blur-sm">
+              <div className="p-5 border-t border-gray-200 bg-white/80 backdrop-blur-sm flex-shrink-0">
                 <div className="flex gap-3">
                   <input
                     type="text"

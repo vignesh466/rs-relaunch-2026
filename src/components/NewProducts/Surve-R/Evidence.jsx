@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 const Evidence = () => {
   return (
@@ -24,11 +23,9 @@ const Evidence = () => {
               className="bg-[#F4F4F4] rounded-2xl shadow-lg flex items-center justify-center p-6"
               style={{ width: "544px", height: "440px", maxWidth: "100%" }}
             >
-              <Image
+              <img
                 src="/assets/SurveR/Newpage/evidence_1.svg"
                 alt="Geo tag and location verification"
-                width={330}
-                height={420}
                 className="rounded-2xl object-contain w-auto h-auto max-w-full max-h-full"
               />
             </div>
@@ -48,11 +45,9 @@ const Evidence = () => {
               className="bg-[#F4F4F4] rounded-2xl shadow-lg flex items-center justify-center p-6"
               style={{ width: "544px", height: "440px", maxWidth: "100%" }}
             >
-              <Image
+              <img
                 src="/assets/SurveR/Newpage/evidence_2.svg"
                 alt="Complex relationships capture interface"
-                width={480}
-                height={388}
                 className="rounded-lg object-contain w-auto h-auto max-w-full max-h-full"
               />
             </div>

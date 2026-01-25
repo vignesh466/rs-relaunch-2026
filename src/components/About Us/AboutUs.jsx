@@ -6,7 +6,7 @@ import Colors from "../../constants/Color";
 const AboutUs = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [screenWidth, setScreenWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 0
+    typeof window !== "undefined" ? window.innerWidth : 0,
   );
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const AboutUs = () => {
   return (
     <>
       <div
-        className="min-h-screen px-6 md:px-16 py-12"
+        className="min-h-screen px-6 md:px-16 py-12 md:pt-0"
         style={{ backgroundColor: Colors.Bg_color_1 }}
       >
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -64,18 +64,239 @@ const AboutUs = () => {
             </p>
           </motion.div>
 
-          {/* Right Section - Image */}
+          {/* Right Section - Relific OS Diagram */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="w-full max-w-lg mx-auto"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="relative h-[400px] sm:h-[480px] lg:h-[540px] xl:h-[580px] flex flex-col items-center justify-center"
           >
-            <img
-              src="/assets/aboutus.svg"
-              alt="About Relific"
-              className="w-full h-auto rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
-            />
+            <div className="relative w-full h-full flex items-center justify-center">
+              {/* Enhanced soft glow */}
+              <motion.div
+                className="absolute rounded-full"
+                style={{
+                  width: "clamp(240px, 70vw, 340px)",
+                  height: "clamp(240px, 70vw, 340px)",
+                  background: `radial-gradient(circle, ${Colors.Primary_font}33, transparent 70%)`,
+                  filter: "blur(40px)",
+                }}
+                animate={{ scale: [1, 1.08, 1], opacity: [0.4, 0.7, 0.4] }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+
+              {/* Main orbital ring */}
+              <motion.div
+                className="absolute rounded-full"
+                style={{
+                  width: "clamp(240px, 70vw, 320px)",
+                  height: "clamp(240px, 70vw, 320px)",
+                  border: `2.5px solid ${Colors.Primary_font}`,
+                  opacity: 0.8,
+                  boxShadow: `0 0 20px ${Colors.Primary_font}33`,
+                }}
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 30,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              />
+
+              {/* Inner dashed ring */}
+              <motion.div
+                className="absolute rounded-full"
+                style={{
+                  width: "clamp(180px, 55vw, 260px)",
+                  height: "clamp(180px, 55vw, 260px)",
+                  border: "2px dashed #d4d4d8",
+                  opacity: 0.35,
+                }}
+                animate={{ rotate: -360 }}
+                transition={{
+                  duration: 36,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              />
+
+              {/* Outer dashed ring */}
+              <motion.div
+                className="absolute rounded-full"
+                style={{
+                  width: "clamp(300px, 85vw, 380px)",
+                  height: "clamp(300px, 85vw, 380px)",
+                  border: "2px dashed #d4d4d8",
+                  opacity: 0.35,
+                }}
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 42,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              />
+
+              {/* Centre hub */}
+              <motion.div
+                whileHover={{ scale: 1.06 }}
+                transition={{ type: "spring", stiffness: 280, damping: 20 }}
+                className="relative z-10 flex items-center justify-center rounded-full bg-white shadow-[0_15px_40px_rgba(0,0,0,0.15)]"
+                style={{
+                  width: "clamp(120px, 28vw, 160px)",
+                  height: "clamp(120px, 28vw, 160px)",
+                  border: `3px solid ${Colors.Primary_font}11`,
+                }}
+              >
+                <div className="text-center px-2">
+                  <p
+                    className="text-[10px] sm:text-[12px] font-semibold"
+                    style={{ color: Colors.Primary_font }}
+                  >
+                    Relific
+                  </p>
+                  <p
+                    className="text-[16px] sm:text-[20px] lg:text-[24px] font-bold"
+                    style={{ color: Colors.Primary_font }}
+                  >
+                    Impact OS
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Drive-R */}
+              <motion.div
+                className="absolute cursor-pointer"
+                style={{
+                  left: "clamp(15%, 50% - 170px, 50% - 190px)",
+                  top: "clamp(15%, 50% - 85px, 50% - 95px)",
+                  transform: "translate(-50%, -50%)",
+                  zIndex: 20,
+                }}
+                initial={{ opacity: 0, scale: 0.85 }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  y: [0, -8, 0],
+                }}
+                transition={{
+                  opacity: { duration: 0.5, delay: 0 },
+                  y: {
+                    duration: 2.8,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  },
+                }}
+                whileHover={{ scale: 1.12, y: -10 }}
+                onClick={() => (window.location.href = "/drive_r")}
+              >
+                <div
+                  className="flex flex-col items-center gap-1.5 sm:gap-2 p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl backdrop-blur-md border-2 border-white/50 hover:border-white/80 transition-all shadow-lg hover:shadow-xl"
+                  style={{
+                    backgroundColor: "rgba(255,255,255,0.95)",
+                  }}
+                >
+                  <img
+                    src="/assets/product_logos/DriveR_small.png"
+                    alt="Drive-R"
+                    className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 object-contain drop-shadow-md"
+                  />
+                  <span className="text-[8px] sm:text-[10px] font-bold text-gray-800 whitespace-nowrap">
+                    Drive-R
+                  </span>
+                </div>
+              </motion.div>
+
+              {/* ProGran */}
+              <motion.div
+                className="absolute cursor-pointer"
+                style={{
+                  left: "clamp(65%, 50% + 120px, 50% + 150px)",
+                  top: "clamp(15%, 50% - 75px, 50% - 85px)",
+                  transform: "translate(-50%, -50%)",
+                  zIndex: 20,
+                }}
+                initial={{ opacity: 0, scale: 0.85 }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  y: [0, -8, 0],
+                }}
+                transition={{
+                  opacity: { duration: 0.5, delay: 0.4 },
+                  y: {
+                    duration: 3.2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  },
+                }}
+                whileHover={{ scale: 1.12, y: -10 }}
+                onClick={() => (window.location.href = "/progran")}
+              >
+                <div
+                  className="flex flex-col items-center gap-1.5 sm:gap-2 p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl backdrop-blur-md border-2 border-white/50 hover:border-white/80 transition-all shadow-lg hover:shadow-xl"
+                  style={{
+                    backgroundColor: "rgba(255,255,255,0.95)",
+                  }}
+                >
+                  <img
+                    src="/assets/product_logos/ProGran_small.png"
+                    alt="ProGran"
+                    className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 object-contain drop-shadow-md"
+                  />
+                  <span className="text-[8px] sm:text-[10px] font-bold text-gray-800 whitespace-nowrap">
+                    ProGran
+                  </span>
+                </div>
+              </motion.div>
+
+              {/* Surve-R */}
+              <motion.div
+                className="absolute cursor-pointer"
+                style={{
+                  left: "clamp(40%, 50% - 30px, 50% - 45px)",
+                  top: "clamp(70%, 50% + 120px, 50% + 145px)",
+                  transform: "translate(-50%, -50%)",
+                  zIndex: 20,
+                }}
+                initial={{ opacity: 0, scale: 0.85 }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  y: [0, -8, 0],
+                }}
+                transition={{
+                  opacity: { duration: 0.5, delay: 0.2 },
+                  y: {
+                    duration: 3.0,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  },
+                }}
+                whileHover={{ scale: 1.12, y: -10 }}
+                onClick={() => (window.location.href = "/surve_r")}
+              >
+                <div
+                  className="flex flex-col items-center gap-1.5 sm:gap-2 p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl backdrop-blur-md border-2 border-white/50 hover:border-white/80 transition-all shadow-lg hover:shadow-xl"
+                  style={{
+                    backgroundColor: "rgba(255,255,255,0.95)",
+                  }}
+                >
+                  <img
+                    src="/assets/product_logos/SurveR_small.png"
+                    alt="Surve-R"
+                    className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 object-contain drop-shadow-md"
+                  />
+                  <span className="text-[8px] sm:text-[10px] font-bold text-gray-800 whitespace-nowrap">
+                    Surve-R
+                  </span>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
 
@@ -101,8 +322,8 @@ const AboutUs = () => {
                 minHeight: isExpanded
                   ? "auto"
                   : screenWidth < 768
-                  ? "150px"
-                  : "202px",
+                    ? "150px"
+                    : "202px",
               }}
             />
 

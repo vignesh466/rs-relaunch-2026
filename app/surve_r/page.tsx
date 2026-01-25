@@ -2,11 +2,11 @@ import React from "react";
 import type { Metadata } from "next";
 
 // Import new components
-import Banner from "../../src/components/NewProducts/Banner";
-import VerifyImpact from "../../src/components/NewProducts/VerifyImpact";
-import Evidence from "../../src/components/NewProducts/Evidence";
-import Visibility from "../../src/components/NewProducts/Visibility";
-import CTA from "../../src/components/NewProducts/CTA";
+import Banner from "../../src/components/NewProducts/Surve-R/Banner";
+import VerifyImpact from "../../src/components/NewProducts/Surve-R/VerifyImpact";
+import Evidence from "../../src/components/NewProducts/Surve-R/Evidence";
+import Visibility from "../../src/components/NewProducts/Surve-R/Visibility";
+import CTA from "../../src/components/NewProducts/Surve-R/CTA";
 
 export const metadata: Metadata = {
   title: "Surve-R: AI-Powered Mobile Data Collection & Impact Reporting",
@@ -89,7 +89,9 @@ const SurveRPage = () => {
           __html: JSON.stringify(productSchema),
         }}
       />
-      <Banner />
+      <div className="pt-10">
+        <Banner />
+      </div>
       <VerifyImpact />
       <Evidence />
       <Visibility />

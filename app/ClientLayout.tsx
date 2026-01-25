@@ -7,6 +7,7 @@ import Navbar from "../src/constants/NavBar/navbar";
 import Footer from "../src/constants/Footer/footer";
 import Colors from "../src/constants/Color";
 import LoadingComponent from "./components/Loading";
+import ChatbotBubble from "../src/chatbot/ChatbotBubble";
 
 const LoadingScreen = () => <LoadingComponent />;
 
@@ -60,6 +61,7 @@ export default function ClientLayout({
             {children}
           </motion.div>
           <Footer />
+          <ChatbotBubble />
         </motion.div>
       )}
     </AnimatePresence>
