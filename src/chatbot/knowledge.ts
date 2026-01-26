@@ -572,6 +572,36 @@ export const relificKnowledge: KnowledgeBase = {
 
   faqs: [
     {
+      question: "Do you give grants?",
+      answer:
+        "No, Relific doesn't provide or give out grants. We're a software platform that helps organizations **manage** their grants and programmes. If you're looking to apply for grants, we recommend checking with foundations, CSR teams, or government programmes in your area. If you're a grantmaker looking to manage your grant operations, [book a demo](/book-demo) to see how ProGran can help!",
+      relatedProducts: ["progran"],
+      keywords: [
+        "give grant",
+        "give grants",
+        "giving grants",
+        "get grant",
+        "get a grant",
+        "get grants",
+        "apply grant",
+        "apply for grant",
+        "grant money",
+        "grant from you",
+        "funding from you",
+        "fund from you",
+        "do you fund",
+        "can you fund",
+        "provide grant",
+        "provide funding",
+        "offer grant",
+        "offer funding",
+        "receive grant",
+        "receive funding",
+        "grant application",
+        "apply for funding",
+      ],
+    },
+    {
       question: "What is Relific?",
       answer:
         "Relific is an AI-powered SaaS platform for the social sector. We provide three integrated products—ProGran (programme & grants management), Drive-R (data integration & reporting), and Surve-R (field data collection)—that work together to help NGOs and CSR teams manage their impact operations efficiently.",
@@ -886,6 +916,271 @@ export const SECTOR_PROMPTS: Record<
 };
 
 // ============================================================
+// STRICT WHITELIST QUERY VALIDATION
+// ============================================================
+
+/**
+ * WHITELIST APPROACH: Query is ONLY valid if it contains at least one of these keywords.
+ * If NONE of these are present, the query is rejected as irrelevant.
+ *
+ * NOTE: Only domain-specific terms. NO generic words like "what", "how", "can", "contact".
+ */
+export const ALLOWED_KEYWORDS: string[] = [
+  // ===== COMPANY & PRODUCTS (highest priority) =====
+  "relific",
+  "drive-r",
+  "driver",
+  "drive r",
+  "surve-r",
+  "surver",
+  "surve r",
+  "progran",
+  "pro gran",
+  "ai-r",
+
+  // ===== CORE AUDIENCE =====
+  "ngo",
+  "ngos",
+  "non-profit",
+  "nonprofit",
+  "non profit",
+  "csr",
+  "corporate social responsibility",
+  "social sector",
+  "social impact",
+  "social enterprise",
+  "foundation",
+  "foundations",
+  "grantmaker",
+  "grantmakers",
+  "development organization",
+  "development sector",
+  "civil society",
+
+  // ===== GRANTS & PROGRAMMES =====
+  "grant",
+  "grants",
+  "grantee",
+  "grantees",
+  "programme",
+  "programmes",
+  "program management",
+  "disbursement",
+  "disbursements",
+  "compliance",
+  "schedule vii",
+  "schedule 7",
+  "donor",
+  "donors",
+  "funder",
+  "funders",
+  "funding",
+
+  // ===== DATA & ANALYTICS =====
+  "dashboard",
+  "dashboards",
+  "analytics",
+  "data integration",
+  "data collection",
+  "data quality",
+  "reporting",
+  "kpi",
+  "kpis",
+  "indicator",
+  "indicators",
+  "metrics",
+  "visualization",
+
+  // ===== FIELD OPERATIONS =====
+  "field data",
+  "field collection",
+  "field team",
+  "field work",
+  "fieldwork",
+  "survey",
+  "surveys",
+  "questionnaire",
+  "enumerator",
+  "enumerators",
+  "beneficiary",
+  "beneficiaries",
+  "offline data",
+  "mobile data collection",
+
+  // ===== M&E CONCEPTS =====
+  "m&e",
+  "monitoring and evaluation",
+  "monitoring evaluation",
+  "baseline",
+  "midline",
+  "endline",
+  "impact measurement",
+  "impact assessment",
+  "outcome tracking",
+  "theory of change",
+
+  // ===== FEATURES (specific) =====
+  "offline mode",
+  "offline survey",
+  "multi-language",
+  "multilingual",
+  "voice to text",
+  "gps tracking",
+  "photo verification",
+  "form builder",
+  "skip logic",
+  "data validation",
+  "report generation",
+  "automated report",
+
+  // ===== SECTORS (when asking about support) =====
+  "agriculture program",
+  "healthcare program",
+  "education program",
+  "climate program",
+  "livelihood program",
+  "nutrition program",
+  "wash program",
+  "water sanitation",
+
+  // ===== BUSINESS ACTIONS (specific phrases) =====
+  "book demo",
+  "book a demo",
+  "schedule demo",
+  "request demo",
+  "pricing plan",
+  "free trial",
+  "get started",
+  "sign up",
+  "demo video",
+];
+
+/**
+ * Additional single keywords that are ONLY valid in combination
+ * with other domain signals
+ */
+export const CONTEXTUAL_KEYWORDS: string[] = [
+  "demo",
+  "pricing",
+  "trial",
+  "data",
+  "report",
+  "survey",
+  "form",
+  "impact",
+  "program",
+  "project",
+  "field",
+  "offline",
+];
+
+/**
+ * Simple greetings that should get a friendly response
+ */
+export const GREETING_PATTERNS: RegExp[] = [
+  /^(hi|hello|hey|hii+|hola|namaste|greetings)[\s!.,]*$/i,
+  /^good\s+(morning|afternoon|evening|day|night)[\s!.,]*$/i,
+  /^(hi|hello|hey)\s+there[\s!.,]*$/i,
+  /^howdy[\s!.,]*$/i,
+];
+
+/**
+ * Acknowledgments that should get a friendly closing response
+ */
+export const ACKNOWLEDGMENT_PATTERNS: RegExp[] = [
+  /^(thanks|thank\s*you|thx|ty)[\s!.,]*$/i,
+  /^(ok|okay|cool|great|got\s*it|understood)[\s!.,]*$/i,
+  /^(bye|goodbye|see\s*you|later)[\s!.,]*$/i,
+];
+
+/**
+ * Check if query is a greeting
+ */
+export function isGreeting(query: string): boolean {
+  const trimmed = query.trim();
+  return GREETING_PATTERNS.some((pattern) => pattern.test(trimmed));
+}
+
+/**
+ * Check if query is an acknowledgment
+ */
+export function isAcknowledgment(query: string): boolean {
+  const trimmed = query.trim();
+  return ACKNOWLEDGMENT_PATTERNS.some((pattern) => pattern.test(trimmed));
+}
+
+/**
+ * Check if user is asking whether Relific GIVES/PROVIDES grants
+ * This is a common misconception - we are software, not a grant-giving foundation
+ */
+export function isAskingForGrants(query: string): boolean {
+  const lowerQuery = query.toLowerCase();
+
+  // Must contain "grant" or "grants"
+  if (!lowerQuery.includes("grant")) {
+    return false;
+  }
+
+  // Patterns that indicate they think we GIVE grants
+  const grantGivingPatterns = [
+    /do you (give|provide|offer|have|distribute|fund|award)/i,
+    /can (i|we|you) (get|apply|receive|have) .*(grant|funding)/i,
+    /give .* grant/i,
+    /provide .* grant/i,
+    /offer .* grant/i,
+    /apply for .* grant/i,
+    /grant (application|funding|money|opportunity)/i,
+    /funding (opportunity|available|application)/i,
+    /how (to|can i|do i) (get|apply|receive) .* grant/i,
+    /are you .* (funder|grantmaker|foundation)/i,
+    /do you fund/i,
+    /can you fund/i,
+    /looking for (grant|funding)/i,
+    /need (grant|funding)/i,
+    /want .* grant/i,
+  ];
+
+  return grantGivingPatterns.some((pattern) => pattern.test(lowerQuery));
+}
+
+/**
+ * STRICT CHECK: Returns true ONLY if query contains at least one allowed keyword
+ */
+export function isRelevantQuery(query: string): boolean {
+  const lowerQuery = query.toLowerCase();
+
+  // Check if ANY allowed keyword/phrase is present
+  const hasAllowedKeyword = ALLOWED_KEYWORDS.some((keyword) =>
+    lowerQuery.includes(keyword.toLowerCase()),
+  );
+
+  if (hasAllowedKeyword) {
+    return true;
+  }
+
+  // Check contextual keywords - need at least 2 to be valid
+  // OR 1 contextual + question about "your" / "you" / "relific"
+  const matchedContextual = CONTEXTUAL_KEYWORDS.filter((keyword) =>
+    lowerQuery.includes(keyword.toLowerCase()),
+  );
+
+  const hasCompanyReference =
+    lowerQuery.includes("your") ||
+    lowerQuery.includes("you ") ||
+    lowerQuery.includes("relific");
+
+  if (matchedContextual.length >= 2) {
+    return true;
+  }
+
+  if (matchedContextual.length >= 1 && hasCompanyReference) {
+    return true;
+  }
+
+  return false;
+}
+
+// ============================================================
 // NAVIGATION MAP (STRICT ALLOWLIST)
 // ============================================================
 
@@ -897,7 +1192,12 @@ export const NAVIGATION_LINKS = {
   pricing: "/pricing",
   demo: "/book-demo",
   contact: "/contact",
-  about: "/about",
+  about: "/aboutus",
+  whoWeServe: "/whoweserve",
+  resources: "/resources",
+  demoVideos: "/demo-videos",
+  allProducts: "/allproducts",
+  privacy: "/privacy",
 };
 
 // ============================================================
@@ -907,8 +1207,20 @@ export const NAVIGATION_LINKS = {
 export const INITIAL_GREETING =
   "Hi! 👋 I'm here to help you explore Relific's platform. You can ask me about **Drive-R** (data integration & reporting), **Surve-R** (field data collection), or **ProGran** (programme & grants management). How can I help you today?";
 
+export const GREETING_RESPONSE =
+  "Hello! 👋 How can I help you today? Feel free to ask about our products (**Drive-R**, **Surve-R**, **ProGran**) or how Relific can help your organization.";
+
+export const ACKNOWLEDGMENT_RESPONSE =
+  "You're welcome! Feel free to ask if you have more questions about Relific. 😊";
+
+export const GRANT_MISCONCEPTION_RESPONSE =
+  "No, Relific does not provide or give grants. We are a **software company** that builds tools to help organizations **manage** their grants and programmes.\n\nOur products:\n• **ProGran** - Manage grant lifecycles, disbursements & compliance\n• **Drive-R** - Unify data & generate donor reports\n• **Surve-R** - Collect field data with AI-assisted forms\n\n👉 [Book a Demo](/book-demo) to see how we can help you manage your grants better!";
+
 export const OUT_OF_SCOPE_MESSAGE =
   "I'd love to help you with that! For detailed discussions, our team can provide personalized guidance.\n\n👉 [Book a Demo](/book-demo)";
+
+export const IRRELEVANT_QUERY_MESSAGE =
+  "I'm sorry, that's outside my expertise. I can only help with questions about Relific's products and services.\n\nTry asking about **Drive-R**, **Surve-R**, **ProGran**, or how we help NGOs and CSR teams! 😊";
 
 export const LIMIT_REACHED_MESSAGE =
   "You've reached the question limit for this session. 🎯\n\nExplore our products or book a demo for personalized guidance:\n\n[ProGran](/progran) - Programme & Grants Operations\n[Drive-R](/drive_r) - Data Integration & Reporting\n[Surve-R](/surve_r) - AI-Assisted Field Data Collection\n\n👉 [Book a Demo](/book-demo)";
@@ -1033,9 +1345,97 @@ export const getAIRCapabilities = (productId: string): string[] => {
 };
 
 /**
+ * Find navigation-related response
+ */
+export function findNavigationResponse(query: string): string | null {
+  const lowerQuery = query.toLowerCase();
+
+  // Contact queries
+  if (
+    lowerQuery.includes("contact") ||
+    lowerQuery.includes("reach") ||
+    lowerQuery.includes("talk to") ||
+    lowerQuery.includes("get in touch")
+  ) {
+    return "You can reach us through our [Contact page](/contact) or [book a demo](/book-demo) to speak with our team directly.";
+  }
+
+  // Demo queries
+  if (
+    lowerQuery.includes("demo") ||
+    lowerQuery.includes("see it") ||
+    lowerQuery.includes("show me") ||
+    lowerQuery.includes("try")
+  ) {
+    return "You can [book a personalized demo](/book-demo) with our team, or watch our [demo videos](/demo-videos) to see the platform in action.";
+  }
+
+  // Pricing queries
+  if (
+    lowerQuery.includes("price") ||
+    lowerQuery.includes("pricing") ||
+    lowerQuery.includes("cost") ||
+    lowerQuery.includes("how much")
+  ) {
+    return "For pricing information tailored to your needs, please [contact us](/contact) or [book a demo](/book-demo) to discuss with our team.";
+  }
+
+  // About queries
+  if (
+    lowerQuery.includes("about") &&
+    (lowerQuery.includes("you") ||
+      lowerQuery.includes("relific") ||
+      lowerQuery.includes("company"))
+  ) {
+    return "Learn more about our mission and team on our [About Us](/aboutus) page, or see [who we serve](/whoweserve).";
+  }
+
+  // Products overview
+  if (
+    lowerQuery.includes("all products") ||
+    lowerQuery.includes("what products") ||
+    lowerQuery.includes("your products")
+  ) {
+    return "Explore all our products on the [All Products](/allproducts) page: **Drive-R** for data & reporting, **Surve-R** for field collection, and **ProGran** for grants management.";
+  }
+
+  return null;
+}
+
+/**
  * Generate chatbot response based on user query
+ * STRICT WHITELIST: Only responds if query contains allowed keywords
  */
 export function generateResponse(userQuery: string): string {
+  // Handle greetings first
+  if (isGreeting(userQuery)) {
+    return GREETING_RESPONSE;
+  }
+
+  // Handle acknowledgments
+  if (isAcknowledgment(userQuery)) {
+    return ACKNOWLEDGMENT_RESPONSE;
+  }
+
+  // IMPORTANT: Check for grant-giving misconception BEFORE relevance check
+  // (because these queries DO contain relevant keywords like "grant")
+  if (isAskingForGrants(userQuery)) {
+    return GRANT_MISCONCEPTION_RESPONSE;
+  }
+
+  // STRICT CHECK: Reject if query doesn't contain ANY allowed keywords
+  if (!isRelevantQuery(userQuery)) {
+    return IRRELEVANT_QUERY_MESSAGE;
+  }
+
+  // From here, we know the query contains at least one relevant keyword
+
+  // Check for navigation queries
+  const navResponse = findNavigationResponse(userQuery);
+  if (navResponse) {
+    return navResponse;
+  }
+
   // Check for AI-R specific questions
   if (
     userQuery.toLowerCase().includes("ai-r") ||
@@ -1044,7 +1444,7 @@ export function generateResponse(userQuery: string): string {
     return `${relificKnowledge.aiR.description}\n\nKey capabilities include: ${relificKnowledge.aiR.capabilities.slice(0, 4).join(", ")}, and more.`;
   }
 
-  // Try FAQ match first
+  // Try FAQ match
   const faq = findRelevantFAQ(userQuery);
   if (faq) {
     return faq.answer;
@@ -1068,7 +1468,7 @@ export function generateResponse(userQuery: string): string {
     return sector.response;
   }
 
-  // Out of scope - redirect to demo
+  // Has relevant keywords but no specific match - guide to demo
   return OUT_OF_SCOPE_MESSAGE;
 }
 
