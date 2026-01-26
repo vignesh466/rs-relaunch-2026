@@ -95,13 +95,13 @@ const ProGranEvidence = () => {
               </div>
               <div>
                 <p className="text-white text-base md:text-lg lg:text-xl leading-relaxed mb-3 md:mb-4">
-                  We reduced our data processing time from 2 weeks to 2 hours
-                  while expanding our reach to 600% more beneficiaries. The AI
-                  insights helped us discover that our literacy programs work
-                  best when combined with nutrition support.
+                  Relific (Krisiyukta) took time to understand our work and our
+                  aspirations and used their deep experience in creating a
+                  solution that works. They are committed to their customers. We
+                  highly recommend them.
                 </p>
                 <p className="text-gray-400 text-sm md:text-base lg:text-lg font-medium">
-                  — Rural Education Foundation, India
+                  — Mr. Durgesh Raturi, President - SGIF
                 </p>
               </div>
             </div>

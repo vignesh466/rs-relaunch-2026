@@ -1,12 +1,13 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { X, Send, MessageCircle, Sparkles } from "lucide-react";
+import { X, Send, MessageCircle } from "lucide-react";
 import {
   INITIAL_GREETING,
   LIMIT_REACHED_MESSAGE,
   LIMIT_GREETING,
   CHATBOT_CONFIG,
   parseMarkdownContent,
+  generateResponse,
 } from "./knowledge";
 
 interface Message {
@@ -202,12 +203,13 @@ export default function ChatbotBubble() {
       }
     } catch (error) {
       console.error("Chat error:", error);
-      const errorMessage: Message = {
+      // Fallback to local knowledge base response
+      const fallbackResponse = generateResponse(userQuery);
+      const fallbackMessage: Message = {
         role: "bot",
-        content:
-          "Sorry, I'm having trouble responding right now. Please try again.",
+        content: fallbackResponse,
       };
-      setMessages((prev) => [...prev, errorMessage]);
+      setMessages((prev) => [...prev, fallbackMessage]);
       setIsTyping(false);
     }
   };
@@ -271,7 +273,7 @@ export default function ChatbotBubble() {
         <a
           key={`link-${keyCounter++}`}
           href={link.url}
-          className="text-blue-500 hover:text-blue-600 font-medium underline underline-offset-2 transition-colors"
+          className="text-[#5563ff] hover:text-[#4452e0] font-medium underline underline-offset-2 transition-colors"
           onClick={() => setIsOpen(false)}
         >
           {link.text}
@@ -315,17 +317,17 @@ export default function ChatbotBubble() {
             transform: translateY(0px);
           }
           50% {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
           }
         }
 
         @keyframes pulse-ring {
           0% {
             transform: scale(0.95);
-            opacity: 1;
+            opacity: 0.5;
           }
           100% {
-            transform: scale(1.3);
+            transform: scale(1.15);
             opacity: 0;
           }
         }
@@ -333,11 +335,11 @@ export default function ChatbotBubble() {
         @keyframes slideUp {
           from {
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(8px) scale(0.98);
           }
           to {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
           }
         }
 
@@ -346,15 +348,15 @@ export default function ChatbotBubble() {
         }
 
         .animate-pulse-ring {
-          animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          animation: pulse-ring 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
 
         .animate-slide-up {
-          animation: slideUp 0.3s ease-out forwards;
+          animation: slideUp 0.25s ease-out forwards;
         }
 
         .message-enter {
-          animation: slideUp 0.4s ease-out;
+          animation: slideUp 0.3s ease-out;
         }
 
         .typing-indicator span {
@@ -380,24 +382,21 @@ export default function ChatbotBubble() {
           }
         }
 
-        .glassmorphism {
-          background: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
+        .chat-scrollbar::-webkit-scrollbar {
+          width: 4px;
         }
 
-        .gradient-border::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          border-radius: inherit;
-          padding: 1px;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          -webkit-mask:
-            linear-gradient(#fff 0 0) content-box,
-            linear-gradient(#fff 0 0);
-          -webkit-mask-composite: xor;
-          mask-composite: exclude;
+        .chat-scrollbar::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        .chat-scrollbar::-webkit-scrollbar-thumb {
+          background: #e2e8f0;
+          border-radius: 2px;
+        }
+
+        .chat-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #cbd5e1;
         }
       `}</style>
 
@@ -410,67 +409,46 @@ export default function ChatbotBubble() {
           style={{
             right: `${position.x}px`,
             bottom: `${position.y}px`,
-            cursor: isDragging ? "grabbing" : "grab",
+            cursor: isDragging ? "grabbing" : "pointer",
           }}
           className={`fixed z-50 ${!isDragging ? "animate-float" : ""} transition-transform hover:scale-105`}
           aria-label="Chat with Relific"
         >
           <div className="relative group">
-            {/* Pulsing rings */}
+            {/* Subtle pulsing ring */}
             <div className="absolute inset-0 animate-pulse-ring">
-              <div className="w-full h-full rounded-full bg-gradient-to-r from-blue-500 to-purple-600 opacity-20"></div>
-            </div>
-            <div
-              className="absolute inset-0 animate-pulse-ring"
-              style={{ animationDelay: "1s" }}
-            >
-              <div className="w-full h-full rounded-full bg-gradient-to-r from-purple-500 to-blue-600 opacity-20"></div>
+              <div className="w-full h-full rounded-full bg-[#5563ff] opacity-25"></div>
             </div>
 
             {/* Main bubble */}
-            <div className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 rounded-full p-1 shadow-2xl">
+            <div className="relative bg-[#5563ff] rounded-full p-0.5 shadow-lg shadow-[#5563ff]/20">
               <div className="bg-white rounded-full p-2">
                 <img
                   src="/logo_small_new.png"
                   alt="Relific chatbot"
-                  className="h-12 w-12 drop-shadow-lg transform group-hover:rotate-12 transition-all duration-300"
+                  className="h-10 w-10 drop-shadow-sm transform group-hover:scale-105 transition-all duration-200"
                 />
               </div>
-            </div>
-
-            {/* Sparkle effect */}
-            <div className="absolute -top-1 -right-1 opacity-0 group-hover:opacity-100 transition-opacity">
-              <Sparkles size={16} className="text-yellow-400 animate-pulse" />
             </div>
           </div>
         </button>
       )}
 
-      {/* Chatbot Window */}
+      {/* Chatbot Window - Compact & Clean */}
       {isOpen && (
-        <div className="fixed right-6 bottom-6 z-50 w-96 max-w-[calc(100vw-3rem)] h-[600px] max-h-[calc(100vh-3rem)] animate-slide-up">
-          {/* Glassmorphism container with gradient border */}
-          <div className="relative h-full glassmorphism rounded-2xl shadow-2xl flex flex-col gradient-border">
-            {/* Header with gradient */}
-            <div className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 p-5 flex justify-between items-center overflow-hidden flex-shrink-0">
-              {/* Animated background pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-pulse"></div>
-              </div>
-
-              <div className="flex items-center gap-3 relative z-10">
-                <div className="bg-white/20 backdrop-blur-sm p-2 rounded-lg">
-                  <MessageCircle size={24} className="text-white" />
+        <div className="fixed right-5 bottom-5 z-50 w-[340px] max-w-[calc(100vw-2.5rem)] h-[480px] max-h-[calc(100vh-2.5rem)] animate-slide-up">
+          <div className="relative h-full bg-white rounded-2xl shadow-xl shadow-gray-200/50 flex flex-col overflow-hidden border border-gray-100">
+            {/* Header - Clean design with #5563ff */}
+            <div className="relative bg-[#5563ff] px-4 py-3.5 flex justify-between items-center flex-shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="bg-white/15 p-1.5 rounded-lg">
+                  <MessageCircle size={18} className="text-white" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-white flex items-center gap-2">
+                  <h3 className="font-semibold text-[15px] text-white">
                     Relific Assistant
-                    <Sparkles
-                      size={16}
-                      className="text-yellow-300 animate-pulse"
-                    />
                   </h3>
-                  <p className="text-xs text-blue-100 font-medium">
+                  <p className="text-[11px] text-white/70 font-medium">
                     {showLimit
                       ? "Query limit reached"
                       : `${queryCount}/${CHATBOT_CONFIG.maxQueriesPerSession} questions used`}
@@ -479,29 +457,29 @@ export default function ChatbotBubble() {
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="relative z-10 hover:bg-white/20 p-2 rounded-lg transition-all duration-200 hover:rotate-90"
+                className="hover:bg-white/15 p-1.5 rounded-lg transition-colors duration-200"
                 aria-label="Close chat"
               >
-                <X size={22} className="text-white" />
+                <X size={18} className="text-white" />
               </button>
             </div>
 
-            {/* Messages with gradient background */}
-            <div className="flex-1 overflow-y-auto p-5 space-y-4 bg-gradient-to-b from-gray-50 to-white min-h-0">
+            {/* Messages */}
+            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-gray-50/50 min-h-0 chat-scrollbar">
               {messages.map((message, index) => (
                 <div
                   key={index}
                   className={`flex ${message.role === "user" ? "justify-end" : "justify-start"} message-enter`}
-                  style={{ animationDelay: `${index * 0.05}s` }}
+                  style={{ animationDelay: `${index * 0.03}s` }}
                 >
                   <div
-                    className={`max-w-[85%] p-4 rounded-2xl shadow-lg transition-all hover:shadow-xl ${
+                    className={`max-w-[85%] px-3.5 py-2.5 rounded-2xl transition-all ${
                       message.role === "user"
-                        ? "bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-br-sm"
-                        : "bg-white text-gray-800 rounded-bl-sm border border-gray-100"
+                        ? "bg-[#5563ff] text-white rounded-br-md shadow-sm shadow-[#5563ff]/20"
+                        : "bg-white text-gray-700 rounded-bl-md shadow-sm border border-gray-100"
                     }`}
                   >
-                    <p className="text-sm whitespace-pre-wrap leading-relaxed">
+                    <p className="text-[13px] whitespace-pre-wrap leading-relaxed">
                       {renderMessageContent(message.content)}
                     </p>
                   </div>
@@ -511,11 +489,11 @@ export default function ChatbotBubble() {
               {/* Typing indicator */}
               {isTyping && (
                 <div className="flex justify-start message-enter">
-                  <div className="bg-white p-4 rounded-2xl rounded-bl-sm shadow-lg border border-gray-100">
+                  <div className="bg-white px-4 py-3 rounded-2xl rounded-bl-md shadow-sm border border-gray-100">
                     <div className="typing-indicator flex gap-1">
-                      <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                      <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                      <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
+                      <span className="w-1.5 h-1.5 bg-gray-400 rounded-full"></span>
+                      <span className="w-1.5 h-1.5 bg-gray-400 rounded-full"></span>
+                      <span className="w-1.5 h-1.5 bg-gray-400 rounded-full"></span>
                     </div>
                   </div>
                 </div>
@@ -526,36 +504,32 @@ export default function ChatbotBubble() {
 
             {/* Input or CTA */}
             {showLimit ? (
-              <div className="p-5 border-t border-gray-200 bg-white/80 backdrop-blur-sm flex-shrink-0">
+              <div className="px-4 py-3.5 border-t border-gray-100 bg-white flex-shrink-0">
                 <a
                   href="/book-demo"
-                  className="block w-full bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 text-white text-center py-4 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden group"
+                  className="block w-full bg-[#5563ff] hover:bg-[#4452e0] text-white text-center py-3 rounded-xl font-semibold text-sm transition-all duration-200 shadow-sm shadow-[#5563ff]/20 hover:shadow-md"
                 >
-                  <span className="relative z-10 flex items-center justify-center gap-2">
-                    📅 Book a Demo
-                    <Sparkles size={16} className="group-hover:animate-pulse" />
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  📅 Book a Demo
                 </a>
               </div>
             ) : (
-              <div className="p-5 border-t border-gray-200 bg-white/80 backdrop-blur-sm flex-shrink-0">
-                <div className="flex gap-3">
+              <div className="px-4 py-3.5 border-t border-gray-100 bg-white flex-shrink-0">
+                <div className="flex gap-2">
                   <input
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Ask about our products..."
-                    className="flex-1 border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all bg-white"
+                    className="flex-1 border border-gray-200 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#5563ff] focus:ring-2 focus:ring-[#5563ff]/10 transition-all bg-gray-50/50 placeholder:text-gray-400"
                   />
                   <button
                     onClick={handleSendMessage}
                     disabled={!inputValue.trim()}
-                    className="bg-gradient-to-br from-blue-600 to-blue-700 text-white p-3 rounded-xl hover:from-blue-700 hover:to-blue-800 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:hover:translate-y-0"
+                    className="bg-[#5563ff] hover:bg-[#4452e0] text-white p-2.5 rounded-xl disabled:bg-gray-200 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md disabled:shadow-none"
                     aria-label="Send message"
                   >
-                    <Send size={20} />
+                    <Send size={18} />
                   </button>
                 </div>
               </div>

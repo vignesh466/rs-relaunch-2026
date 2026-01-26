@@ -96,13 +96,11 @@ const DriveREvidence = () => {
               </div>
               <div>
                 <p className="text-white text-base md:text-lg lg:text-xl leading-relaxed mb-3 md:mb-4">
-                  We reduced our data processing time from 2 weeks to 2 hours
-                  while expanding our reach to 600% more beneficiaries. The AI
-                  insights helped us discover that our literacy programs work
-                  best when combined with nutrition support.
+                  Great work, Relific (Krisiyukta) team! Truly impressive
+                  efforts in bringing technology to the grassroots.
                 </p>
                 <p className="text-gray-400 text-sm md:text-base lg:text-lg font-medium">
-                  — Rural Education Foundation, India
+                  — Mr. Sreekanth Reddy, Tata trusts
                 </p>
               </div>
             </div>

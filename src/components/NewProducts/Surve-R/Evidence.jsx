@@ -72,13 +72,16 @@ const Evidence = () => {
               </div>
               <div>
                 <p className="text-white text-base md:text-lg lg:text-xl leading-relaxed mb-3 md:mb-4">
-                  We reduced our data processing time from 2 weeks to 2 hours
-                  while expanding our reach to 600% more beneficiaries. The AI
-                  insights helped us discover that our literacy programs work
-                  best when combined with nutrition support.
+                  As an extension worker, I previously had to visit farmers
+                  fields, record the problems, and then inform scientists to
+                  provide advice without thoroughly considering factors like
+                  climate and the history of pesticide sprays. With Relific, I
+                  can now collect detailed data directly from the field,
+                  including photos and GPS locations, which allows scientists to
+                  give more accurate and timely recommendations.
                 </p>
                 <p className="text-gray-400 text-sm md:text-base lg:text-lg font-medium">
-                  — Rural Education Foundation, India
+                  — Mr. Yellappa, Kalike
                 </p>
               </div>
             </div>

@@ -218,12 +218,6 @@ export const teamMembers = [
     linkedin: "https://www.linkedin.com/in/vignesh-seshadri-661b5b3a/",
   },
   {
-    name: "Melon Spoorthy",
-    designation: "Product Marketing Manager",
-    image: spoorthy,
-    linkedin: "https://www.linkedin.com/in/melon-spoorthy-16a40914b/",
-  },
-  {
     name: "Blessy S",
     designation: "Junior Data Analyst",
     image: blessy,
@@ -273,105 +267,6 @@ export const coreValues = [
     image: friendly, // Replace with actual icon if needed
     description:
       "Designed with simplicity and efficiency in mind, our solutions are intuitive, accessible, and easy to implement for all stakeholders.",
-  },
-];
-
-export const impactStories = [
-  {
-    id: "farmer-producer", // ✅ Unique ID for navigation
-    title: "Farmer Producer",
-    description:
-      "Relific technology to offer useful information and tools to improve profitability and productivity.",
-    image: row1a,
-    designed: true, // This story has a designed detail page
-  },
-  {
-    id: "input-providers",
-    title: "Input Providers",
-    description:
-      "Relific technology to offer useful information and tools to improve profitability and productivity.",
-    image: row1b,
-    designed: false, // This story will redirect to comingsoon
-  },
-  {
-    id: "ngos",
-    title: "NGOs",
-    description:
-      "Relific technology to offer useful information and tools to improve profitability and productivity.",
-    image: row1c,
-    designed: false,
-  },
-  {
-    id: "cooperatives",
-    title: "Co-operatives",
-    description:
-      "Relific technology to offer useful information and tools to improve profitability and productivity.",
-    image: row1d,
-    designed: false,
-  },
-  {
-    id: "agri-research",
-    title: "Agri Research",
-    description:
-      "Relific technology to offer useful information and tools to improve profitability and productivity.",
-    image: row2a,
-    designed: false,
-  },
-  {
-    id: "agri-consortia",
-    title: "Agri Consortia",
-    description:
-      "Relific technology to offer useful information and tools to improve profitability and productivity.",
-    image: row2b,
-    designed: false,
-  },
-  {
-    id: "government",
-    title: "Government",
-    description:
-      "Relific technology to offer useful information and tools to improve profitability and productivity.",
-    image: row2c,
-    designed: false,
-  },
-  {
-    id: "agri-innovations",
-    title: "Agri Innovations",
-    description:
-      "Relific technology to offer useful information and tools to improve profitability and productivity.",
-    image: row2d,
-    designed: false,
-  },
-  {
-    id: "farmer-cooperative",
-    title: "Farmer Co-operative",
-    description:
-      "Relific technology to offer useful information and tools to improve profitability and productivity.",
-    image: row3a,
-    designed: false,
-  },
-  {
-    id: "agri-coop",
-    title: "Agri Co-op",
-    description:
-      "Relific technology to offer useful information and tools to improve profitability and productivity.",
-    image: row3b,
-    designed: false,
-  },
-  {
-    id: "international-agri",
-    title: "International Agri",
-    description:
-      "Relific technology to offer useful information and tools to improve profitability and productivity.",
-    image: row3c,
-    designed: false,
-  },
-  {
-    id: "livelihood-mission",
-    title: "Livelihood Mission",
-    description:
-      "Relific technology to offer useful information and tools to improve profitability and productivity.",
-    image: row3d,
-    designed: false,
   },
 ];
 
