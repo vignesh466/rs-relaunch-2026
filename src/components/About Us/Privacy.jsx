@@ -39,6 +39,146 @@ const Privacy = () => {
     expanded: { height: "auto", opacity: 1 },
   };
 
+  const renderSectionContent = (section, textSizeClass) => {
+    return (
+      <div className={`text-gray-700 ${textSizeClass} space-y-4`}>
+        {/* Section intro */}
+        {section.intro && <p className="leading-relaxed">{section.intro}</p>}
+
+        {/* Section text (for simple sections) */}
+        {section.text && <p className="leading-relaxed">{section.text}</p>}
+
+        {/* Section points */}
+        {section.points && (
+          <ul className="list-disc list-inside space-y-2">
+            {section.points.map((point, idx) =>
+              typeof point === "string" ? (
+                <li key={idx} className="leading-relaxed">
+                  {point}
+                </li>
+              ) : (
+                <li key={idx} className="mb-3">
+                  <span className="font-semibold text-gray-900">
+                    {point.title}
+                  </span>
+                  {point.text && <p className="ml-5 mt-1">{point.text}</p>}
+                  {point.details && (
+                    <ul className="list-disc list-inside ml-5 mt-1 space-y-1">
+                      {point.details.map((detail, i) => (
+                        <li key={i}>{detail}</li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ),
+            )}
+          </ul>
+        )}
+
+        {/* Subsections */}
+        {section.subsections && (
+          <div className="space-y-4">
+            {section.subsections.map((subsection, idx) => (
+              <div key={idx} className="ml-0">
+                {subsection.title && (
+                  <h4 className="font-semibold text-gray-900 mb-2">
+                    {subsection.title}
+                  </h4>
+                )}
+                {subsection.text && (
+                  <p className="leading-relaxed mb-2">{subsection.text}</p>
+                )}
+                {subsection.intro && (
+                  <p className="leading-relaxed mb-2">{subsection.intro}</p>
+                )}
+                {subsection.points && (
+                  <ul className="list-disc list-inside space-y-2 ml-4">
+                    {subsection.points.map((point, i) => (
+                      <li key={i} className="leading-relaxed">
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {subsection.items && (
+                  <div className="space-y-3 ml-4">
+                    {subsection.items.map((item, i) => (
+                      <div key={i}>
+                        {typeof item === "string" ? (
+                          <p className="leading-relaxed">{item}</p>
+                        ) : (
+                          <div>
+                            {item.subtitle && (
+                              <span className="font-semibold text-gray-900">
+                                {item.subtitle}
+                              </span>
+                            )}
+                            {item.text && (
+                              <p className="ml-5 mt-1 leading-relaxed">
+                                {item.text}
+                              </p>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {subsection.subsections && (
+                  <div className="space-y-3 ml-4">
+                    {subsection.subsections.map((nestedSub, j) => (
+                      <div key={j}>
+                        {nestedSub.title && (
+                          <h5 className="font-semibold text-gray-900 mb-1">
+                            {nestedSub.title}
+                          </h5>
+                        )}
+                        {nestedSub.items && (
+                          <div className="space-y-2 ml-4">
+                            {nestedSub.items.map((item, k) => (
+                              <div key={k}>
+                                {item.subtitle && (
+                                  <span className="font-semibold text-gray-900">
+                                    {item.subtitle}
+                                  </span>
+                                )}
+                                {item.text && (
+                                  <p className="ml-5 mt-1 leading-relaxed">
+                                    {item.text}
+                                  </p>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Section note */}
+        {section.note && (
+          <p className="leading-relaxed italic text-gray-600 mt-3">
+            {section.note}
+          </p>
+        )}
+
+        {/* Section details (for contact info) */}
+        {section.details && (
+          <ul className="list-disc list-inside space-y-1 ml-4">
+            {section.details.map((detail, idx) => (
+              <li key={idx}>{detail}</li>
+            ))}
+          </ul>
+        )}
+      </div>
+    );
+  };
+
   return (
     <main
       className="min-h-screen py-10 sm:py-12"
@@ -128,26 +268,7 @@ const Privacy = () => {
                           }}
                         >
                           <div className="py-1">
-                            {Array.isArray(section.points) ? (
-                              <ul className="list-disc list-inside space-y-2 text-gray-700 text-sm">
-                                {section.points.map((point, idx) =>
-                                  typeof point === "string" ? (
-                                    <li key={idx}>{point}</li>
-                                  ) : (
-                                    <div key={idx} className="mb-3">
-                                      <h4 className="text-base font-semibold text-gray-900 mb-1.5">
-                                        {point.title}
-                                      </h4>
-                                      <ul className="list-disc list-inside space-y-1 text-gray-700">
-                                        {point.details?.map((detail, i) => (
-                                          <li key={i}>{detail}</li>
-                                        ))}
-                                      </ul>
-                                    </div>
-                                  )
-                                )}
-                              </ul>
-                            ) : null}
+                            {renderSectionContent(section, "text-sm")}
                           </div>
                         </motion.div>
                       )}
@@ -155,28 +276,7 @@ const Privacy = () => {
                   ) : (
                     // Desktop: always visible
                     <div id={`section-panel-${index}`}>
-                      <div>
-                        {Array.isArray(section.points) ? (
-                          <ul className="list-disc list-inside space-y-2 text-gray-700 text-base">
-                            {section.points.map((point, idx) =>
-                              typeof point === "string" ? (
-                                <li key={idx}>{point}</li>
-                              ) : (
-                                <div key={idx} className="mb-4">
-                                  <h4 className="text-lg font-semibold text-gray-900 mb-1.5">
-                                    {point.title}
-                                  </h4>
-                                  <ul className="list-disc list-inside space-y-1 text-gray-700">
-                                    {point.details?.map((detail, i) => (
-                                      <li key={i}>{detail}</li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              )
-                            )}
-                          </ul>
-                        ) : null}
-                      </div>
+                      <div>{renderSectionContent(section, "text-base")}</div>
                     </div>
                   )}
                 </div>
