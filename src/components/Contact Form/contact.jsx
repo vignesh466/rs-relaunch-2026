@@ -40,9 +40,9 @@ const INTEREST_OPTIONS = [
   ["Surve-R", "All Products"],
 ];
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/mwpvjjoa"; // Updated Formspree endpoint
-
-//const FORMSPREE_ENDPOINT = process.env.Contact_Formspree;
+const FORMSPREE_ENDPOINT =
+  process.env.NEXT_PUBLIC_Contact_Formspree ||
+  "https://formspree.io/f/xojdkyqk";
 
 const INITIAL_FORM_STATE = {
   name: "",
@@ -217,7 +217,7 @@ const Contact = () => {
                   required
                 />
               </div>
-            )
+            ),
           )}
 
           {/* Demo Schedule Fields */}

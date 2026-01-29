@@ -73,7 +73,8 @@ const TEAM_SIZES = [
   "200+ people",
 ];
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/mldpbylj";
+const FORMSPREE_ENDPOINT =
+  process.env.NEXT_PUBLIC_Demo_Formspree || "https://formspree.io/f/xbdozqje";
 
 const INITIAL_FORM_STATE = {
   name: "",
